@@ -1,5 +1,9 @@
 # For programmers having trouble touch typing the top row
 
+After pcurt854 was merged into master, I started to further improve the mapping.
+This folder will keep track of these changes.
+I hope it will be a better, easier to use version of pcurt854.
+
 ### My problem and using preonic to solve it
 
 I am an okay letter typist, but often need to look and find special symbols, like $ and ^, on the top row.  Using layers, I assigned special symbols to keys corresponding to their names.
