@@ -168,19 +168,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ |      |      |   !  |   $  |   ~  |      |   _  |   |  |      |   %  | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   @  |   *  |      |      |   `  |   #  |   -  |      |   +  |      |      |
+ * | ____ |   @  |   *  |      |      |   `  |   #  |   -  |      |   +  | ____ | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |   ^  |      |   \  |   &  |   =  |      |      | PgUp |      |
+ * |      |      |      |   ^  |      |   \  |   &  |   =  | ____ | ____ | PgUp |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ____ | ____ | ____ | ____ |      | ____ | ____ |      |      | Home | PgDn | End  |
+ * | ____ | ____ | ____ | ____ |      | ____ | ____ |      | ____ | Home | PgDn | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_SYMBOL] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, XXXXXXX, KC_UNDS, KC_PIPE, XXXXXXX, KC_PERC, _______,
-  _______, KC_AT,   KC_ASTR, XXXXXXX, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, XXXXXXX, KC_PLUS, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, XXXXXXX, KC_BSLS, KC_AMPR, KC_EQL,  XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX,
-  _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_END
+  _______, KC_AT,   KC_ASTR, XXXXXXX, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, XXXXXXX, KC_PLUS, _______, _______,
+  XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, XXXXXXX, KC_BSLS, KC_AMPR, KC_EQL,  _______, _______, KC_PGUP, XXXXXXX,
+  _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, _______, KC_HOME, KC_PGDN, KC_END
 ),
 
 /* Bracket layer 5
