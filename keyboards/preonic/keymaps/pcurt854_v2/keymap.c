@@ -17,6 +17,7 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
+#include "velocikey.h"
 
 enum preonic_layers {
   _QWERTY,	// 0
@@ -36,8 +37,20 @@ enum preonic_keycodes {
   ABKPAIR,
   RBKPAIR,
   SBKPAIR,
-  CBKPAIR
+  CBKPAIR,
+  VLKTOGG
 };
+
+#ifdef AUDIO_ENABLE
+//float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
+float leader_start_song[][2] = SONG(NO_SOUND);
+float leader_succeed_song[][2] = SONG(STARTUP_SOUND);
+//float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
+float leader_fail_song[][2] = SONG(NO_SOUND);
+
+float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
+float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -200,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, RGB_M_P,  RGB_M_G, RGB_M_T,  XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, XXXXXXX, _______,
   XXXXXXX, RGB_M_X,  XXXXXXX, XXXXXXX,  RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, _______,
   XXXXXXX, RGB_M_B,  RGB_M_R, RGB_M_SW, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_SN, RGB_M_K, XXXXXXX,  VLK_TOG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, RGB_M_SN, RGB_M_K, XXXXXXX,  VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX,
   _______, _______,  _______, _______,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
@@ -278,23 +291,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           break;
         case ABKPAIR:
           if (record->event.pressed) {
-              SEND_STRING("<>"SS_TAP(X_LEFT));
+            SEND_STRING("<>"SS_TAP(X_LEFT));
           }
           break;
         case RBKPAIR:
           if (record->event.pressed) {
-              SEND_STRING("()"SS_TAP(X_LEFT));
+            SEND_STRING("()"SS_TAP(X_LEFT));
           }
           break;
         case SBKPAIR:
           if (record->event.pressed) {
-              SEND_STRING("[]"SS_TAP(X_LEFT));
+            SEND_STRING("[]"SS_TAP(X_LEFT));
           }
           break;
         case CBKPAIR:
           if (record->event.pressed) {
-              SEND_STRING("{}"SS_TAP(X_LEFT));
+            SEND_STRING("{}"SS_TAP(X_LEFT));
           }
+          break;
+        case VLKTOGG:
+          if (record->event.pressed) {
+            #ifdef VELOCIKEY_ENABLE
+            velocikey_toggle();
+            #ifdef AUDIO_ENABLE
+            if (velocikey_enabled()) {
+              PLAY_SONG(velocikey_start_song);
+            } else {
+              PLAY_SONG(velocikey_stop_song);
+            }
+            #endif
+            #endif
+          }
+	  return false;
           break;
       }
     return true;
@@ -354,13 +382,6 @@ bool led_update_user(led_t led_state) {
 }
 
 bool did_leader_succeed;
-#ifdef AUDIO_ENABLE
-//float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
-float leader_start_song[][2] = SONG(NO_SOUND);
-float leader_succeed_song[][2] = SONG(STARTUP_SOUND);
-//float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
-float leader_fail_song[][2] = SONG(NO_SOUND);
-#endif
 LEADER_EXTERNS();
 
 void matrix_scan_user(void) {
