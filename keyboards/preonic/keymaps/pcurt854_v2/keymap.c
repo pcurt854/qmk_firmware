@@ -198,23 +198,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Bracket layer 5
  * ,-----------------------------------------------------------------------------------.
- * |      |plain |gradnt| test |      |      |  <|> |    < | >    |      |      | ____ |
+ * |      |gradnt|plain | test |      |      |  <|> |    < | >    |      |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------|------|
- * |      | Xmas |      |      | rgb  | saT+ |  (|) |    ( | )    |      |      | ____ |
+ * |      | Xmas |plain |plain | rgb  | saT+ |  (|) |    ( | )    |      |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------|------|
- * |      |breath|rainbw|swirl | hue+ | mod+ |  [|] |    [ | ]    |      |      |      |
+ * |      |swirl |rainbw|breath| hue+ | mod+ |  [|] |    [ | ]    |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------|------|
- * |      |snake |knight|      | vlk  | Brt+ |  {|} |    { | }    |      |      |      |
+ * |      |plain |snake |knight| vlk  | Brt+ |  {|} |    { | }    |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
-  XXXXXXX, RGB_M_P,  RGB_M_G, RGB_M_T,  XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, XXXXXXX, _______,
-  XXXXXXX, RGB_M_X,  XXXXXXX, XXXXXXX,  RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, _______,
-  XXXXXXX, RGB_M_B,  RGB_M_R, RGB_M_SW, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_SN, RGB_M_K, XXXXXXX,  VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______, _______,  _______, _______,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, XXXXXXX, _______,
+  XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, _______,
+  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
 /* Adjust layer 6
