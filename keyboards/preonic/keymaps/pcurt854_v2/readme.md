@@ -50,7 +50,7 @@ aNd (&), dollaR ($)
 
 At (@), Backslash (\\), Circumflex (^), Exclamation (!), Grave (`), Hash (#), Percent (%), Star (*), Tilde (~), Underscore (_)
 
-Some symbols moved away from their original positions:
+Some symbols were moved away from their original positions:
 
 * minus (\-) is put on J so it's under Underscore, easy to access, and matches the bump on the J key
 
