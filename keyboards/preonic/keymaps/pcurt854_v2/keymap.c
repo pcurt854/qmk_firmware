@@ -38,7 +38,8 @@ enum preonic_keycodes {
   RBKPAIR,
   SBKPAIR,
   CBKPAIR,
-  VLKTOGG
+  VLKTOGG,
+  NWMVMXW
 };
 
 #ifdef AUDIO_ENABLE
@@ -230,8 +231,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |      |screen|      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      | Caps |Virus |      |      | Mute | vol+ |      | dsp+ |      |
- * |      |      |      |      |scan  |      |      |      |      |      |      |      |
+ * |      |      |      | Caps |Virus |      |Nw mv | Mute | vol+ |      | dsp+ |      |
+ * |      |      |      |      |scan  |      |mx win|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ |      |      |      |      | vol- |      | dsp- |      |
  * |      |      |      |      |      |      |      |      |      |      |      |      |
@@ -245,7 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
                                                                  LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS, SCMD(KC_V),
-                                               XXXXXXX, XXXXXXX, KC__MUTE, KC__VOLUP,   XXXXXXX, LCAG(KC_UP), XXXXXXX,
+                                               XXXXXXX, NWMVMXW, KC__MUTE, KC__VOLUP,   XXXXXXX, LCAG(KC_UP), XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC__VOLDOWN, XXXXXXX, LCAG(KC_DOWN), XXXXXXX
 )
 
@@ -310,6 +311,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CBKPAIR:
           if (record->event.pressed) {
             SEND_STRING("{}"SS_TAP(X_LEFT));
+          }
+          return false;
+          break;
+        case NWMVMXW:
+          if (record->event.pressed) {
+            SEND_STRING(SS_LCMD("n") SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_UP(X_LOPT) SS_UP(X_LCTL));
           }
           return false;
           break;
