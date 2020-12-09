@@ -402,6 +402,23 @@ void matrix_scan_user(void) {
     // tap dance
     // sort by first key
 
+    SEQ_ONE_KEY(KC_0) {
+      SEND_STRING(":00");
+      did_leader_succeed = true;
+    }
+    SEQ_ONE_KEY(KC_1) {
+      SEND_STRING(":15");
+      did_leader_succeed = true;
+    }
+    SEQ_ONE_KEY(KC_2) {
+      SEND_STRING(":30");
+      did_leader_succeed = true;
+    }
+    SEQ_ONE_KEY(KC_3) {
+      SEND_STRING(":45");
+      did_leader_succeed = true;
+    }
+
     SEQ_ONE_KEY(KC_BSPC) {
       SEND_STRING(SS_TAP(X_DEL));
       did_leader_succeed = true;
@@ -430,23 +447,6 @@ void matrix_scan_user(void) {
 
     SEQ_ONE_KEY(KC_K) {
       SEND_STRING(",000");
-      did_leader_succeed = true;
-    }
-
-    SEQ_TWO_KEYS(KC_SCLN, KC_0) {
-      SEND_STRING(":00");
-      did_leader_succeed = true;
-    }
-    SEQ_TWO_KEYS(KC_SCLN, KC_1) {
-      SEND_STRING(":15");
-      did_leader_succeed = true;
-    }
-    SEQ_TWO_KEYS(KC_SCLN, KC_2) {
-      SEND_STRING(":30");
-      did_leader_succeed = true;
-    }
-    SEQ_TWO_KEYS(KC_SCLN, KC_3) {
-      SEND_STRING(":45");
       did_leader_succeed = true;
     }
 
