@@ -402,10 +402,6 @@ void matrix_scan_user(void) {
     // tap dance
     // sort by first key
 
-    SEQ_ONE_KEY(KC_0) {
-      SEND_STRING(":00");
-      did_leader_succeed = true;
-    }
     SEQ_ONE_KEY(KC_1) {
       SEND_STRING(":15");
       did_leader_succeed = true;
@@ -416,6 +412,10 @@ void matrix_scan_user(void) {
     }
     SEQ_ONE_KEY(KC_3) {
       SEND_STRING(":45");
+      did_leader_succeed = true;
+    }
+    SEQ_ONE_KEY(KC_4) {
+      SEND_STRING(":00");
       did_leader_succeed = true;
     }
 
