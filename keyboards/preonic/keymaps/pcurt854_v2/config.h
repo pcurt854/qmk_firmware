@@ -31,7 +31,8 @@
 #define RGBLIGHT_SLEEP
 // so rgb sleeps when the system goes to sleep
 
-
+#define RGBLIGHT_EFFECT_CHRISTMAS_INTERVAL 30
+#define RGBLIGHT_EFFECT_CHRISTMAS_STEP 1
 
 
 #ifdef AUDIO_ENABLE
