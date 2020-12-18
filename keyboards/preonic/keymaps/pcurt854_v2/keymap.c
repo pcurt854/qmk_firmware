@@ -346,6 +346,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   The two numbers: starting LED number, number of LEDs
 */
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {6, 2, HSV_ORANGE}
+);
+const rgblight_segment_t PROGMEM my_shift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {7, 1, HSV_ORANGE}
+);
 const rgblight_segment_t PROGMEM my_numpad_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_ORANGE},
     {8, 1, HSV_ORANGE}
@@ -362,38 +368,46 @@ const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_GREEN},
     {8, 1, HSV_GREEN}
 );
-const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {6, 2, HSV_PINK}
-);
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_numpad_layer,
+    my_capslock_layer, // 0
+    my_shift_layer,    // 1
+    my_numpad_layer,   // offset=2
     my_symbol_layer,
     my_bracket_layer,
-    my_adjust_layer,
-    my_capslock_layer
+    my_adjust_layer
 );
 
 void keyboard_post_init_user(void) {
     rgblight_layers = my_rgb_layers;
 }
 
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+
+    return true;
+}
+
+void oneshot_mods_changed_user(uint8_t mods) {
+  if (mods & MOD_MASK_SHIFT) {
+    rgblight_set_layer_state(1, true);
+  }
+  if (!mods) {
+    rgblight_set_layer_state(1, false);
+  }
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+    int offset = 2;
     for (int i = 0; i <= _ADJUST - _NUMPAD; i++) {
-        rgblight_set_layer_state(i, false);
+        rgblight_set_layer_state(i+offset, false);
     }
     int highest_layer = get_highest_layer(state);
     if (highest_layer >= _NUMPAD && highest_layer <= _ADJUST) {
-        rgblight_set_layer_state(highest_layer-_NUMPAD, true);
+        rgblight_set_layer_state(highest_layer-_NUMPAD+offset, true);
     }
 
     return state;
-}
-
-bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(_ADJUST - _NUMPAD + 1, led_state.caps_lock);
-
-    return true;
 }
 
 bool did_leader_succeed;
