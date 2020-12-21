@@ -485,6 +485,15 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
+    SEQ_TWO_KEYS(KC_U, KC_K) {
+      SEND_STRING("United Kingdom");
+      did_leader_succeed = true;
+    }
+    SEQ_TWO_KEYS(KC_U, KC_S) {
+      SEND_STRING("United States");
+      did_leader_succeed = true;
+    }
+
     leader_end();
   }
 }
