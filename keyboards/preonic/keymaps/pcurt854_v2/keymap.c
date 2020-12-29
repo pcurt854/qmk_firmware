@@ -58,14 +58,19 @@ float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
 #define LAYER4_SONG H__NOTE(_C5),
 #define LAYER5_SONG H__NOTE(_C6),
 #define LAYER6_SONG H__NOTE(_C7),
-
 float higher_layer_on_songs[][1][2] = {
   SONG(LAYER3_SONG),
   SONG(LAYER4_SONG),
   SONG(LAYER5_SONG),
   SONG(LAYER6_SONG)
 };
-float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
+
+#define ONESHOT_SHIFT_ON_SONG H__NOTE(_C4), H__NOTE(_C6),
+#define ONESHOT_SHIFT_OFF_SONG H__NOTE(_C6), H__NOTE(_C4),
+float oneshot_shift_on_song[][2] = SONG(ONESHOT_SHIFT_ON_SONG);
+
+float oneshot_off_song[][2] = SONG(GOODBYE_SOUND);
+
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -406,9 +411,15 @@ bool led_update_user(led_t led_state) {
 void oneshot_mods_changed_user(uint8_t mods) {
   if (mods & MOD_MASK_SHIFT) {
     rgblight_set_layer_state(1, true);
+#ifdef AUDIO_ENABLE
+        PLAY_SONG(oneshot_shift_on_song);
+#endif
   }
   if (!mods) {
     rgblight_set_layer_state(1, false);
+#ifdef AUDIO_ENABLE
+        PLAY_SONG(oneshot_off_song);
+#endif
   }
 }
 
