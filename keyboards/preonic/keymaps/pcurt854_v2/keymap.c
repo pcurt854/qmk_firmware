@@ -224,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |gradnt|plain | test |      |      |  <|> |    < | >    |  >   |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------|------|
- * |      | Xmas |plain |plain | rgb  | saT+ |  (|) |    ( | )    |  )   |      | ____ |
+ * |      | Xmas |plain |plain | Rgb  | saT+ |  (|) |    ( | )    |  )   |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------|------|
  * |      |swirl |rainbw|breath| hue+ | mod+ |  [|] |    [ | ]    |  ]   |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------|------|
@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |Qwerty|Colemk|Dvorak|      |      |      |      |      |      |Print |RESET |
  * |      |      |      |      |      |      |      |      |      |      |screen|RESET |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
+ * |      |Audio |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |      |screen|      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      | Caps |Virus |      |Nw mv | Mute | vol+ |      | dsp+ |      |
@@ -264,7 +264,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
   XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
-  XXXXXXX, XXXXXXX, C(LCMD(KC_PAUSE)),
+  XXXXXXX, AU_TOG,  C(LCMD(KC_PAUSE)),
                              LCMD(KC_F4),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
                                                                  LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
