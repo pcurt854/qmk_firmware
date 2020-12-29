@@ -43,6 +43,7 @@ enum preonic_keycodes {
 };
 
 #ifdef AUDIO_ENABLE
+
 //float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
 float leader_start_song[][2] = SONG(NO_SOUND);
 float leader_succeed_song[][2] = SONG(STARTUP_SOUND);
@@ -51,6 +52,20 @@ float leader_fail_song[][2] = SONG(NO_SOUND);
 
 float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
 float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
+
+// all same length, the next to last number in songs below
+#define LAYER3_SONG H__NOTE(_C4),
+#define LAYER4_SONG H__NOTE(_C5),
+#define LAYER5_SONG H__NOTE(_C6),
+#define LAYER6_SONG H__NOTE(_C7),
+
+float higher_layer_on_songs[][1][2] = {
+  SONG(LAYER3_SONG),
+  SONG(LAYER4_SONG),
+  SONG(LAYER5_SONG),
+  SONG(LAYER6_SONG)
+};
+float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -405,7 +420,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     int highest_layer = get_highest_layer(state);
     if (highest_layer >= _NUMPAD && highest_layer <= _ADJUST) {
         rgblight_set_layer_state(highest_layer-_NUMPAD+offset, true);
+#ifdef AUDIO_ENABLE
+        PLAY_SONG(higher_layer_on_songs[highest_layer-_NUMPAD]);
+#endif
     }
+//    else {
+//#ifdef AUDIO_ENABLE
+//        PLAY_SONG(higher_layer_off_song);
+//#endif
+//    }
 
     return state;
 }
