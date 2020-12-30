@@ -54,10 +54,12 @@ float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
 float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
 
 // all same length, the next to last number in songs below
-#define LAYER3_SONG H__NOTE(_C4),
-#define LAYER4_SONG H__NOTE(_C5),
-#define LAYER5_SONG H__NOTE(_C6),
-#define LAYER6_SONG H__NOTE(_C7),
+#define LAYER3_SONG H__NOTE(_C5),
+#define LAYER4_SONG H__NOTE(_C6),
+#define LAYER5_SONG H__NOTE(_C7),
+#define LAYER6_SONG S__NOTE(_C2),
+// make layer 6 sound low and short so it doesn't interfere with other sound
+// we are looking at the keyboard anyway
 float higher_layer_on_songs[][1][2] = {
   SONG(LAYER3_SONG),
   SONG(LAYER4_SONG),
@@ -68,10 +70,9 @@ float higher_layer_on_songs[][1][2] = {
 #define ONESHOT_SHIFT_ON_SONG H__NOTE(_C4), H__NOTE(_C6),
 #define ONESHOT_SHIFT_OFF_SONG H__NOTE(_C6), H__NOTE(_C4),
 float oneshot_shift_on_song[][2] = SONG(ONESHOT_SHIFT_ON_SONG);
-
 float oneshot_off_song[][2] = SONG(GOODBYE_SOUND);
 
-#define CAPS_LOCK_ON_SONG H__NOTE(_C4), H__NOTE(_C6), H__NOTE(_C8),
+#define CAPS_LOCK_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
 float caps_lock_on_song[][2] = SONG(CAPS_LOCK_ON_SONG);
 
 #endif
@@ -420,13 +421,13 @@ void oneshot_mods_changed_user(uint8_t mods) {
   if (mods & MOD_MASK_SHIFT) {
     rgblight_set_layer_state(1, true);
 #ifdef AUDIO_ENABLE
-        PLAY_SONG(oneshot_shift_on_song);
+    PLAY_SONG(oneshot_shift_on_song);
 #endif
   }
   if (!mods) {
     rgblight_set_layer_state(1, false);
 #ifdef AUDIO_ENABLE
-        PLAY_SONG(oneshot_off_song);
+    PLAY_SONG(oneshot_off_song);
 #endif
   }
 }
@@ -443,11 +444,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         PLAY_SONG(higher_layer_on_songs[highest_layer-_NUMPAD]);
 #endif
     }
-//    else {
-//#ifdef AUDIO_ENABLE
-//        PLAY_SONG(higher_layer_off_song);
-//#endif
-//    }
 
     return state;
 }
