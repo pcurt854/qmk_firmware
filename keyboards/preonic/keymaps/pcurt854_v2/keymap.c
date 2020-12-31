@@ -44,11 +44,12 @@ enum preonic_keycodes {
 
 #ifdef AUDIO_ENABLE
 
+#define LEADER_SUCCEED_SONG H__NOTE(_C5), H__NOTE(_C6), H__NOTE(_C5),
 //float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
 float leader_start_song[][2] = SONG(NO_SOUND);
-float leader_succeed_song[][2] = SONG(STARTUP_SOUND);
-//float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
-float leader_fail_song[][2] = SONG(NO_SOUND);
+float leader_succeed_song[][2] = SONG(LEADER_SUCCEED_SONG);
+float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
+//float leader_fail_song[][2] = SONG(NO_SOUND);
 
 float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
 float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
