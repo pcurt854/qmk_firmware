@@ -74,6 +74,7 @@ float oneshot_off_song[][2] = SONG(GOODBYE_SOUND);
 
 #define CAPS_LOCK_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
 float caps_lock_on_song[][2] = SONG(CAPS_LOCK_ON_SONG);
+float caps_lock_off_song[][2] = SONG(GOODBYE_SOUND);
 
 #endif
 
@@ -409,8 +410,13 @@ void keyboard_post_init_user(void) {
 bool led_update_user(led_t led_state) {
     rgblight_set_layer_state(0, led_state.caps_lock);
 #ifdef AUDIO_ENABLE
-    if (led_state.caps_lock) {
-        PLAY_SONG(caps_lock_on_song);
+//    if (led_state.caps_lock) {
+//        PLAY_SONG(caps_lock_on_song);
+//    }
+    static uint8_t caps_state = 0;
+    if (caps_state != led_state.caps_lock) { // caps lock state changed
+        led_state.caps_lock ? PLAY_SONG(caps_lock_on_song) : PLAY_SONG(caps_lock_off_song);
+        caps_state = led_state.caps_lock;
     }
 #endif
 
