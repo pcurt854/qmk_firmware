@@ -383,16 +383,16 @@ const rgblight_segment_t PROGMEM my_numpad_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {8, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_MAGENTA},
-    {8, 1, HSV_MAGENTA}
+    {1, 1, HSV_GREEN},
+    {8, 1, HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM my_bracket_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_CYAN},
     {8, 1, HSV_CYAN}
 );
 const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_GREEN},
-    {8, 1, HSV_GREEN}
+    {1, 1, HSV_MAGENTA},
+    {8, 1, HSV_MAGENTA}
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
