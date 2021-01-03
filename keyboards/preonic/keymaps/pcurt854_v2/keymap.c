@@ -67,7 +67,8 @@ float higher_layer_on_songs[][1][2] = {
   SONG(LAYER5_SONG),
   SONG(LAYER6_SONG)
 };
-float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
+// float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
+float higher_layer_off_song[][2] = SONG(NO_SOUND);
 
 #define ONESHOT_SHIFT_ON_SONG H__NOTE(_C4), H__NOTE(_C6),
 #define ONESHOT_SHIFT_OFF_SONG H__NOTE(_C6), H__NOTE(_C4),
