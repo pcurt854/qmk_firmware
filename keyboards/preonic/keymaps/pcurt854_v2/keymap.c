@@ -295,100 +295,101 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case QWERTY:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY);
-          }
-          return false;
-          break;
-        case COLEMAK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_COLEMAK);
-          }
-          return false;
-          break;
-        case DVORAK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_DVORAK);
-          }
-          return false;
-          break;
-        case ABKPAIR:
-          if (record->event.pressed) {
-            SEND_STRING("<>"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case AUDIOTG:
-          if (record->event.pressed) {
-            if (is_audio_on()) {
-              // PLAY_SONG(audio_off_song); // won't hear it before the audio is turned off
-              audio_off();
-            } else {
-              audio_on();
-              PLAY_SONG(audio_on_song);
-            }
-          }
-          return false;
-          break;
-        case BACKLIT:
-          if (record->event.pressed) {
-            register_code(KC_RSFT);
-            #ifdef BACKLIGHT_ENABLE
-              backlight_step();
-            #endif
-            #ifdef __AVR__
-            writePinLow(E6);
-            #endif
-          } else {
-            unregister_code(KC_RSFT);
-            #ifdef __AVR__
-            writePinHigh(E6);
-            #endif
-          }
-          return false;
-          break;
-        case CBKPAIR:
-          if (record->event.pressed) {
-            SEND_STRING("{}"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case NWMVMXW:
-          if (record->event.pressed) {
-            SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_UP(X_LOPT) SS_UP(X_LCTL));
-          }
-          return false;
-          break;
-        case RBKPAIR:
-          if (record->event.pressed) {
-            SEND_STRING("()"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case SBKPAIR:
-          if (record->event.pressed) {
-            SEND_STRING("[]"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case VLKTOGG:
-          if (record->event.pressed) {
-            #ifdef VELOCIKEY_ENABLE
-            velocikey_toggle();
-            #ifdef AUDIO_ENABLE
-            if (velocikey_enabled()) {
-              PLAY_SONG(velocikey_start_song);
-            } else {
-              PLAY_SONG(velocikey_stop_song);
-            }
-            #endif
-            #endif
-          }
-          return false;
-          break;
+    case QWERTY:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_QWERTY);
       }
-    return true;
+      return false;
+      break;
+    case COLEMAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_COLEMAK);
+      }
+      return false;
+      break;
+    case DVORAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_DVORAK);
+      }
+      return false;
+      break;
+    // rest are sorted alphabetically
+    case ABKPAIR:
+      if (record->event.pressed) {
+        SEND_STRING("<>"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case AUDIOTG:
+      if (record->event.pressed) {
+        if (is_audio_on()) {
+          // PLAY_SONG(audio_off_song); // won't hear it before the audio is turned off
+          audio_off();
+        } else {
+          audio_on();
+          PLAY_SONG(audio_on_song);
+        }
+      }
+      return false;
+      break;
+    case BACKLIT:
+      if (record->event.pressed) {
+        register_code(KC_RSFT);
+        #ifdef BACKLIGHT_ENABLE
+          backlight_step();
+        #endif
+        #ifdef __AVR__
+        writePinLow(E6);
+        #endif
+      } else {
+        unregister_code(KC_RSFT);
+        #ifdef __AVR__
+        writePinHigh(E6);
+        #endif
+      }
+      return false;
+      break;
+    case CBKPAIR:
+      if (record->event.pressed) {
+        SEND_STRING("{}"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case NWMVMXW:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_UP(X_LOPT) SS_UP(X_LCTL));
+      }
+      return false;
+      break;
+    case RBKPAIR:
+      if (record->event.pressed) {
+        SEND_STRING("()"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case SBKPAIR:
+      if (record->event.pressed) {
+        SEND_STRING("[]"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case VLKTOGG:
+      if (record->event.pressed) {
+        #ifdef VELOCIKEY_ENABLE
+        velocikey_toggle();
+        #ifdef AUDIO_ENABLE
+        if (velocikey_enabled()) {
+          PLAY_SONG(velocikey_start_song);
+        } else {
+          PLAY_SONG(velocikey_stop_song);
+        }
+        #endif
+        #endif
+      }
+      return false;
+      break;
+  }
+  return true; // process all other keys normally
 };
 
 /*
