@@ -44,15 +44,10 @@ enum preonic_keycodes {
 
 #ifdef AUDIO_ENABLE
 
-#define LEADER_SUCCEED_SONG H__NOTE(_C5), H__NOTE(_C6), H__NOTE(_C5),
-//float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
-float leader_start_song[][2] = SONG(NO_SOUND);
-float leader_succeed_song[][2] = SONG(LEADER_SUCCEED_SONG);
-float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
-//float leader_fail_song[][2] = SONG(NO_SOUND);
+#define CAPS_LOCK_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
+float caps_lock_on_song[][2] = SONG(CAPS_LOCK_ON_SONG);
+float caps_lock_off_song[][2] = SONG(GOODBYE_SOUND);
 
-float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
-float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
 
 // all same length, the next to last number in songs below
 #define LAYER3_SONG H__NOTE(_C5),
@@ -70,14 +65,24 @@ float higher_layer_on_songs[][1][2] = {
 // float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
 float higher_layer_off_song[][2] = SONG(NO_SOUND);
 
+
+#define LEADER_SUCCEED_SONG H__NOTE(_C5), H__NOTE(_C6), H__NOTE(_C5),
+//float leader_start_song[][2] = SONG(CHROMATIC_SOUND);
+float leader_start_song[][2] = SONG(NO_SOUND);
+float leader_succeed_song[][2] = SONG(LEADER_SUCCEED_SONG);
+float leader_fail_song[][2] = SONG(GOODBYE_SOUND);
+//float leader_fail_song[][2] = SONG(NO_SOUND);
+
+
 #define ONESHOT_SHIFT_ON_SONG H__NOTE(_C4), H__NOTE(_C6),
 #define ONESHOT_SHIFT_OFF_SONG H__NOTE(_C6), H__NOTE(_C4),
 float oneshot_shift_on_song[][2] = SONG(ONESHOT_SHIFT_ON_SONG);
 float oneshot_off_song[][2] = SONG(GOODBYE_SOUND);
 
-#define CAPS_LOCK_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
-float caps_lock_on_song[][2] = SONG(CAPS_LOCK_ON_SONG);
-float caps_lock_off_song[][2] = SONG(GOODBYE_SOUND);
+
+float velocikey_start_song[][2] = SONG(FANTASIE_IMPROMPTU);
+float velocikey_stop_song[][2] = SONG(GOODBYE_SOUND);
+
 
 #endif
 
