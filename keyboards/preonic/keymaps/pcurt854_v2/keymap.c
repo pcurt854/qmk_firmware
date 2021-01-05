@@ -39,10 +39,17 @@ enum preonic_keycodes {
   SBKPAIR,
   CBKPAIR,
   VLKTOGG,
-  NWMVMXW
+  NWMVMXW,
+  AUDIOTG
 };
 
+
+
 #ifdef AUDIO_ENABLE
+
+#define AUDIO_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
+float audio_on_song[][2] = SONG(AUDIO_ON_SONG);
+float audio_off_song[][2] = SONG(GOODBYE_SOUND);
 
 #define CAPS_LOCK_ON_SONG H__NOTE(_C6), H__NOTE(_C7), H__NOTE(_C8),
 float caps_lock_on_song[][2] = SONG(CAPS_LOCK_ON_SONG);
@@ -274,7 +281,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
   XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
-  XXXXXXX, AU_TOG,  C(LCMD(KC_PAUSE)),
+  XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              LCMD(KC_F4),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
                                                                  LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
@@ -306,6 +313,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
+        case ABKPAIR:
+          if (record->event.pressed) {
+            SEND_STRING("<>"SS_TAP(X_LEFT));
+          }
+          return false;
+          break;
+        case AUDIOTG:
+          if (record->event.pressed) {
+            if (is_audio_on()) {
+              // PLAY_SONG(audio_off_song); // won't hear it before the audio is turned off
+              audio_off();
+            } else {
+              audio_on();
+              PLAY_SONG(audio_on_song);
+            }
+          }
+          return false;
+          break;
         case BACKLIT:
           if (record->event.pressed) {
             register_code(KC_RSFT);
@@ -323,9 +348,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case ABKPAIR:
+        case CBKPAIR:
           if (record->event.pressed) {
-            SEND_STRING("<>"SS_TAP(X_LEFT));
+            SEND_STRING("{}"SS_TAP(X_LEFT));
+          }
+          return false;
+          break;
+        case NWMVMXW:
+          if (record->event.pressed) {
+            SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_UP(X_LOPT) SS_UP(X_LCTL));
           }
           return false;
           break;
@@ -338,18 +369,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SBKPAIR:
           if (record->event.pressed) {
             SEND_STRING("[]"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case CBKPAIR:
-          if (record->event.pressed) {
-            SEND_STRING("{}"SS_TAP(X_LEFT));
-          }
-          return false;
-          break;
-        case NWMVMXW:
-          if (record->event.pressed) {
-            SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_UP(X_LOPT) SS_UP(X_LCTL));
           }
           return false;
           break;
@@ -366,7 +385,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             #endif
             #endif
           }
-	  return false;
+          return false;
           break;
       }
     return true;
