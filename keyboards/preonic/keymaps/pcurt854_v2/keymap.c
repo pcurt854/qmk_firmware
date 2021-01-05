@@ -323,7 +323,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case AUDIOTG:
       if (record->event.pressed) {
         if (is_audio_on()) {
-          // PLAY_SONG(audio_off_song); // won't hear it before the audio is turned off
+          PLAY_SONG(audio_off_song); // putting audio_off() right after seems to cut off the song
+        }
+      } else { // when released
+        if (is_audio_on()) {
           audio_off();
         } else {
           audio_on();
