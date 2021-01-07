@@ -481,11 +481,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         PLAY_SONG(higher_layer_on_songs[highest_layer-_NUMPAD]);
 #endif
     }
-#ifdef AUDIO_ENABLE
-    else {
-        PLAY_SONG(higher_layer_off_song);
-    }
-#endif
+// the following lines are commented out so the STARTUP_SONG can be played
+// the higher_layer_off_song is NO_SOUND after all
+//#ifdef AUDIO_ENABLE
+//    else {
+//        PLAY_SONG(higher_layer_off_song);
+//    }
+//#endif
 
     return state;
 }
