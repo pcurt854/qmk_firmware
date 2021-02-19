@@ -245,17 +245,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------|------|
  * |      |swirl |rainbw|breath| hue+ | mod+ |  [|] |    [ | ]    |  ]   |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------|------|
- * |      |plain |snake |knight| vlk  | Brt+ |  {|} |    { | }    |  }   |      |      |
+ * |      |plain |snake |knight| vlk  | Brt+ |  {|} |    { | }    |  }   | home |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ____ | ____ | ____ | ____ |      |      |      |      |      |      |      |      |
+ * | ____ | ____ | ____ | ____ |      |      |      |      |      |      | end  |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
   XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, KC_RABK, XXXXXXX, _______,
   XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_RPRN, XXXXXXX, _______,
   XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, KC_RBRC, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_RCBR, XXXXXXX, XXXXXXX,
-  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_RCBR, KC_HOME, XXXXXXX,
+  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_END,  XXXXXXX
 ),
 
 /* Adjust layer 6
