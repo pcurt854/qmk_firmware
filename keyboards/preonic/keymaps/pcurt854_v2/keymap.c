@@ -409,18 +409,22 @@ const rgblight_segment_t PROGMEM my_shift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {7, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_numpad_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 2, HSV_ORANGE},
     {1, 1, HSV_ORANGE},
     {8, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 2, HSV_GREEN},
     {1, 1, HSV_GREEN},
     {8, 1, HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM my_bracket_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 2, HSV_CYAN},
     {1, 1, HSV_CYAN},
     {8, 1, HSV_CYAN}
 );
 const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 2, HSV_MAGENTA},
     {1, 1, HSV_MAGENTA},
     {8, 1, HSV_MAGENTA}
 );
