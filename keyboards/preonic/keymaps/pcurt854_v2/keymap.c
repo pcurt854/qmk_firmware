@@ -510,16 +510,32 @@ void matrix_scan_user(void) {
       SEND_STRING(":15");
       did_leader_succeed = true;
     }
+    SEQ_TWO_KEYS(KC_1, KC_1) {
+      SEND_STRING(":15 PM");
+      did_leader_succeed = true;
+    }
     SEQ_ONE_KEY(KC_2) {
       SEND_STRING(":30");
+      did_leader_succeed = true;
+    }
+    SEQ_TWO_KEYS(KC_2, KC_2) {
+      SEND_STRING(":30 PM");
       did_leader_succeed = true;
     }
     SEQ_ONE_KEY(KC_3) {
       SEND_STRING(":45");
       did_leader_succeed = true;
     }
+    SEQ_TWO_KEYS(KC_3, KC_3) {
+      SEND_STRING(":45 PM");
+      did_leader_succeed = true;
+    }
     SEQ_ONE_KEY(KC_4) {
       SEND_STRING(":00");
+      did_leader_succeed = true;
+    }
+    SEQ_TWO_KEYS(KC_4, KC_4) {
+      SEND_STRING(":00 PM");
       did_leader_succeed = true;
     }
 
