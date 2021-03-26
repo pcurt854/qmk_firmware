@@ -415,9 +415,9 @@ const rgblight_segment_t PROGMEM my_numpad_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {8, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4, 2, HSV_GREEN},
-    {1, 1, HSV_GREEN},
-    {8, 1, HSV_GREEN}
+    {4, 2, HSV_CHARTREUSE},
+    {1, 1, HSV_CHARTREUSE},
+    {8, 1, HSV_CHARTREUSE}
 );
 const rgblight_segment_t PROGMEM my_bracket_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {4, 2, HSV_CYAN},
