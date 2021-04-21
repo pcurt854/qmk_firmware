@@ -69,8 +69,8 @@ float higher_layer_on_songs[][1][2] = {
   SONG(LAYER5_SONG),
   SONG(LAYER6_SONG)
 };
-// float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
-float higher_layer_off_song[][2] = SONG(NO_SOUND);
+float higher_layer_off_song[][2] = SONG(GOODBYE_SOUND);
+// float higher_layer_off_song[][2] = SONG(NO_SOUND);
 
 
 #define LEADER_SUCCEED_SONG H__NOTE(_C5), H__NOTE(_C6), H__NOTE(_C5),
@@ -477,6 +477,11 @@ void oneshot_mods_changed_user(uint8_t mods) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     int offset = 2;
     for (int i = 0; i <= _ADJUST - _NUMPAD; i++) {
+#ifdef AUDIO_ENABLE
+        if (rgblight_get_layer_state(i+offset)) {
+            PLAY_SONG(higher_layer_off_song);
+        }
+#endif
         rgblight_set_layer_state(i+offset, false);
     }
     int highest_layer = get_highest_layer(state);
@@ -486,13 +491,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         PLAY_SONG(higher_layer_on_songs[highest_layer-_NUMPAD]);
 #endif
     }
-// the following lines are commented out so the STARTUP_SONG can be played
-// the higher_layer_off_song is NO_SOUND after all
-//#ifdef AUDIO_ENABLE
-//    else {
-//        PLAY_SONG(higher_layer_off_song);
-//    }
-//#endif
 
     return state;
 }
