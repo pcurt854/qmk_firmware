@@ -40,6 +40,7 @@ enum preonic_keycodes {
   CBKPAIR,
   DBKPAIR,
   VLKTOGG,
+  NCBKTAB,
   NWMVMXW,
   AUDIOTG
 };
@@ -268,8 +269,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | F11  | F12  | F13  | F14  | F15  | F16  | F17  | F18  | F19  | F20  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Qwerty|Colemk|Dvorak|      |      |      |      |      |      |Print |RESET |
- * |      |      |      |      |      |      |      |      |      |      |screen|RESET |
+ * |      |Qwerty|Colemk|Dvorak|      | new  |      |      |      |      |Print |RESET |
+ * |      |      |      |      |      | Tab  |      |      |      |      |screen|RESET |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Audio |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |      |screen|      |      |
@@ -283,7 +284,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              LCMD(KC_F4),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
@@ -367,7 +368,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case NWMVMXW:
+    case NCBKTAB: // close all other tabs, create New Chrome BlanK TAB, and close the current one
+      if (record->event.pressed) {
+        SEND_STRING(SS_DOWN(X_LCMD) SS_TAP(X_F1) SS_DELAY(100) SS_UP(X_LCMD) // close all other tabs
+          SS_DELAY(300) SS_LCMD("t") // create new tab
+          SS_DELAY(200) SS_DOWN(X_LCTL) SS_TAP(X_TAB) SS_DELAY(100) SS_UP(X_LCTL) // go back to current tab
+          SS_DELAY(100) SS_LCMD("w")); // and close it
+      }
+      return false;
+      break;
+    case NWMVMXW: // New Window MoVe to next display MaX this new Window and move to lower-right corner
       if (record->event.pressed) {
         SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
       }
