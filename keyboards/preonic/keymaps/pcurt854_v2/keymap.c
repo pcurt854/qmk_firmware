@@ -370,10 +370,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case NCBKTAB: // close all other tabs, create New Chrome BlanK TAB, and close the current one
       if (record->event.pressed) {
-        SEND_STRING(SS_DOWN(X_LCMD) SS_TAP(X_F1) SS_DELAY(100) SS_UP(X_LCMD) // close all other tabs
-          SS_DELAY(300) SS_LCMD("t") // create new tab
-          SS_DELAY(200) SS_DOWN(X_LCTL) SS_TAP(X_TAB) SS_DELAY(100) SS_UP(X_LCTL) // go back to current tab
-          SS_DELAY(100) SS_LCMD("w")); // and close it
+        SEND_STRING(
+          SS_LCMD("t") // create new tab
+          SS_DELAY(100)
+          SS_DOWN(X_LCMD) SS_TAP(X_F1) SS_DELAY(100) SS_UP(X_LCMD) // close all other tabs
+        );
       }
       return false;
       break;
