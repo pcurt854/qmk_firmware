@@ -281,6 +281,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | ____ | ____ | ____ | ____ |      |      |      |      | vol- |      | dsp- |      |
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
+ *
+ * dsp+-:              needs QuickShade
+ * mv win clkw:        needs Rectangle
+ * nw mv mx wind:      needs Rectange
+ * print screen:       with Keyboard/Shortcuts/Screenshots/Screenshot and recording options
+ * virus scan:         needs Sophos Home
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
