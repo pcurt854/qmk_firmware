@@ -33,8 +33,9 @@ enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
   DVORAK,
-  BACKLIT,
   ABKPAIR,
+  ARROW,
+  BACKLIT,
   RBKPAIR,
   SBKPAIR,
   CBKPAIR,
@@ -227,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ |      |      |   !  |   $  |   ~  |      |   _  |   |  |      |   %  | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   @  |   *  |      |      |   `  |   #  |   -  |      |   +  | ____ | ____ |
+ * | ____ |   @  |   *  |      |      |   `  |   #  |   -  |  ->  |   +  | ____ | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |   ^  |SCO(V)|   \  |   &  |   =  | ____ | ____ | PgUp |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -237,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOL] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, XXXXXXX, KC_UNDS, KC_PIPE, XXXXXXX, KC_PERC, _______,
-  _______, KC_AT,   KC_ASTR, XXXXXXX, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, XXXXXXX, KC_PLUS, _______, _______,
+  _______, KC_AT,   KC_ASTR, XXXXXXX, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, _______, _______,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, SCMD(LOPT(KC_V)),
                                                KC_BSLS, KC_AMPR, KC_EQL,  _______, _______, KC_PGUP, XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, _______, KC_HOME, KC_PGDN, KC_END
@@ -330,6 +331,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ABKPAIR:
       if (record->event.pressed) {
         SEND_STRING("<>"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case ARROW:
+      if (record->event.pressed) {
+        SEND_STRING("->");
       }
       return false;
       break;
