@@ -246,24 +246,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Bracket layer 5
  * ,-----------------------------------------------------------------------------------.
- * |      |gradnt|plain | test |      |      |  <|>  |    < | >    |  >   |      | del  |
- * |      |      |      |      |      |      |       |      |      |      |      | brks |
- * |------+------+------+------+------+--------------+------+------+------+------|------|
- * |      | Xmas |plain |plain | Rgb  | saT+ |  (|)  |    ( | )    |  )   |      | ____ |
- * |------+------+------+------+------+--------------+------+------+------+------|------|
- * |      |swirl |rainbw|breath| hue+ | mod+ |  [|]  |    [ | ]    |  ]   |      |      |
- * |------+------+------+------+------+------|-------+------+------+------+------|------|
- * |      |plain |snake |knight| vlk  | Brt+ |  {|}  |    { | }    |  }   | home |      |
- * |------+------+------+------+------+------+-------+------+------+------+------+------|
- * | ____ | ____ | ____ | ____ |      |      |/\*|*\/|  /\* | *\/  | *\/  | end  |      |
+ * |      |gradnt|plain | test |      |      |  <|>  |    < | >    |  <|>  |      | del  |
+ * |      |      |      |      |      |      |       |      |      |       |      | brks |
+ * |------+------+------+------+------+--------------+------+------+-------+------|------|
+ * |      | Xmas |plain |plain | Rgb  | saT+ |  (|)  |    ( | )    |  (|)  |      | ____ |
+ * |------+------+------+------+------+--------------+------+------+-------+------|------|
+ * |      |swirl |rainbw|breath| hue+ | mod+ |  [|]  |    [ | ]    |  [|]  |      |      |
+ * |------+------+------+------+------+------|-------+------+------+-------+------|------|
+ * |      |plain |snake |knight| vlk  | Brt+ |  {|}  |    { | }    |  {|}  | home |      |
+ * |------+------+------+------+------+------+-------+------+------+-------+------+------|
+ * | ____ | ____ | ____ | ____ |      |      |/\*|*\/|  /\* | *\/  |/\*|*\/| end  |      |
  * `------------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
-  XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, KC_RABK, XXXXXXX, DBKPAIR,
-  XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_RPRN, XXXXXXX, _______,
-  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, KC_RBRC, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_RCBR, KC_HOME, XXXXXXX,
-  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  CCMTRT,  KC_END,  XXXXXXX
+  XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, ABKPAIR, XXXXXXX, DBKPAIR,
+  XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, RBKPAIR, XXXXXXX, _______,
+  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, SBKPAIR, XXXXXXX, XXXXXXX,
+  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, CBKPAIR, KC_HOME, XXXXXXX,
+  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  CCMT,    KC_END,  XXXXXXX
 ),
 
 /* Adjust layer 6
