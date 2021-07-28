@@ -611,7 +611,13 @@ void matrix_scan_user(void) {
     }
 
     SEQ_ONE_KEY(KC_C) {
-      SEND_STRING(SS_TAP(X_CAPS));
+      // SEND_STRING(SS_TAP(X_CAPS));
+      SEND_STRING("/**/" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      did_leader_succeed = true;
+    }
+
+    SEQ_ONE_KEY(KC_D) {
+      SEND_STRING("{}" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
 
@@ -628,6 +634,11 @@ void matrix_scan_user(void) {
 
     SEQ_TWO_KEYS(KC_I, KC_C) {
       SEND_STRING("In Christ,");
+      did_leader_succeed = true;
+    }
+
+    SEQ_ONE_KEY(KC_J) {
+      SEND_STRING("<>" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
 
@@ -659,6 +670,16 @@ void matrix_scan_user(void) {
     }
     SEQ_TWO_KEYS(KC_U, KC_S) {
       SEND_STRING("United States");
+      did_leader_succeed = true;
+    }
+
+    SEQ_ONE_KEY(KC_X) {
+      SEND_STRING("()" SS_TAP(X_LEFT));
+      did_leader_succeed = true;
+    }
+
+    SEQ_ONE_KEY(KC_Z) {
+      SEND_STRING("[]" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
 
