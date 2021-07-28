@@ -228,21 +228,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ____ |      |      |   !  |   $  |   ~  |. -> .|   _  |   |  |      |   %  |      |
+ * | ____ |      |      |   !  |   $  |   ~  |. -> .|   _  |   |  |/\**\/|   %  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   @  |   *  |      |      |   `  |   #  |   -  |  ->  |   +  |      |      |
+ * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |   ^  |SCO(V)|   \  |   &  |   =  |      |  ./  | PgUp |      |
+ * |      |  []  |  ()  |   ^  |SCO(V)|   \  |   &  |   =  |  <>  |  ./  | PgUp |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ |      | ____ | ____ |      |      | Home | PgDn | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_SYMBOL] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-  _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, YIELDS,  KC_UNDS, KC_PIPE, XXXXXXX, KC_PERC, XXXXXXX,
-  _______, KC_AT,   KC_ASTR, XXXXXXX, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, SCMD(LOPT(KC_V)),
-                                               KC_BSLS, KC_AMPR, KC_EQL,  XXXXXXX, DOTSLSH, KC_PGUP, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, YIELDS,  KC_UNDS, KC_PIPE, CCMT,    KC_PERC, XXXXXXX,
+  _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, XXXXXXX,
+  XXXXXXX, SBKPAIR, RBKPAIR, KC_CIRC, SCMD(LOPT(KC_V)),
+                                               KC_BSLS, KC_AMPR, KC_EQL,  ABKPAIR, DOTSLSH, KC_PGUP, XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_END
 ),
 
@@ -616,10 +616,12 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
+    /*
     SEQ_ONE_KEY(KC_D) {
       SEND_STRING("{}" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
+    */
 
     SEQ_ONE_KEY(KC_DOT) {
       SEND_STRING(".00");
@@ -637,10 +639,12 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
+    /*
     SEQ_ONE_KEY(KC_J) {
       SEND_STRING("<>" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
+    */
 
     SEQ_ONE_KEY(KC_K) {
       SEND_STRING(",000");
@@ -673,15 +677,19 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
+    /*
     SEQ_ONE_KEY(KC_X) {
       SEND_STRING("()" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
+    */
 
+    /*
     SEQ_ONE_KEY(KC_Z) {
       SEND_STRING("[]" SS_TAP(X_LEFT));
       did_leader_succeed = true;
     }
+    */
 
     leader_end();
   }
