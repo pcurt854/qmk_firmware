@@ -40,6 +40,7 @@ enum preonic_keycodes {
   RBKPAIR,
   SBKPAIR,
   CBKPAIR,
+  HBKPAIR,
   DBKPAIR,
   CCMT,
   CCMTLT,
@@ -253,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------------+--------+-----+-----+------|------|
  * |      | Xmas |plain |plain | Rgb  | saT+ |  (  |   (|)  |  )  |     |      |      |
  * |------+------+------+------+------+------------+--------+-----+-----+------|------|
- * |      |swirl |rainbw|breath| hue+ | mod+ |  [  |   [|]  |  ]  |     |      |      |
+ * |      |swirl |rainbw|breath| hue+ | mod+ |  [  |   [|]  |  ]  |     | [|)  |      |
  * |------+------+------+------+------+------|-----+--------+-----+-----+------|------|
  * |      |plain |snake |knight| vlk  | Brt+ |  {  |   {|}  |  }  |     | home |      |
  * |------+------+------+------+------+------+-----+--------+-----+-----+------+------|
@@ -263,7 +264,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BRACKET] = LAYOUT_preonic_grid(
   XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, KC_LABK, ABKPAIR, KC_RABK, XXXXXXX, XXXXXXX, DBKPAIR,
   XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, KC_LPRN, RBKPAIR, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, KC_LBRC, SBKPAIR, KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, KC_LBRC, SBKPAIR, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
   XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, KC_LCBR, CBKPAIR, KC_RCBR, XXXXXXX, KC_HOME, XXXXXXX,
   _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMTLT,  CCMT,    CCMTRT,  XXXXXXX, KC_END,  XXXXXXX
 ),
@@ -377,6 +378,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case CBKPAIR:
       if (record->event.pressed) {
         SEND_STRING("{}"SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
+    case HBKPAIR: // Half close Half open
+      if (record->event.pressed) {
+        SEND_STRING("[)"SS_TAP(X_LEFT));
       }
       return false;
       break;
