@@ -310,7 +310,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  mod_state = get_mods();
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
@@ -333,7 +335,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // rest are sorted alphabetically
     case ABKPAIR:
       if (record->event.pressed) {
-        SEND_STRING("<>"SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("<>");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("<>"SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
@@ -377,19 +385,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case CBKPAIR:
       if (record->event.pressed) {
-        SEND_STRING("{}"SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("{}");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("{}"SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
     case HBKPAIR: // Half close Half open
       if (record->event.pressed) {
-        SEND_STRING("[)"SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("[)");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("[)"SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
     case CCMT:
       if (record->event.pressed) {
-        SEND_STRING("/**/" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("/**/");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("/**/" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
@@ -435,13 +461,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case RBKPAIR:
       if (record->event.pressed) {
-        SEND_STRING("()"SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("()");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("()"SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
     case SBKPAIR:
       if (record->event.pressed) {
-        SEND_STRING("[]"SS_TAP(X_LEFT));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING("[]");
+          set_mods(mod_state);
+        } else {
+          SEND_STRING("[]"SS_TAP(X_LEFT));
+        }
       }
       return false;
       break;
