@@ -115,24 +115,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |    {}|      |      |      |    <>|      |      |      |      |
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
- * | LCtl |      |      |      |      |      |      |      |      |      |      |      |
+ * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |    []|    ()|    ap|      |      |      |      |      |      |      |      |
  * | mo(5)|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | RCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
- * | Lsft |      |      |      |      |      |      |      |      |      |      |      |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
+ * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
   KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LEAD,
   LCTL_T(KC_ESC),
-           KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+           KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, RCTL_T(KC_QUOT),
   MO(_BRACKET),
            KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   MO(_ADJUST),
   OSM(MOD_LSFT),
-           KC_RCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
+           KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
                                                                           KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
 ),
@@ -148,24 +148,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |    {}|      |      |      |      |      |      |
  * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
- * | LCtl |      |      |      |      |      |      |      |      |      |      |      |
+ * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |    []|    ()|    ap|      |      |      |      |      |      |      |      |
  * | mo(5)|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | RCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
- * | Lsft |      |      |      |      |      |      |      |      |      |      |      |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
+ * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
   KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LEAD,
   LCTL_T(KC_ESC),
-           KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+           KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    RCTL_T(KC_QUOT),
   MO(_BRACKET),
            KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   MO(_ADJUST),
   OSM(MOD_LSFT),
-           KC_RCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
+           KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
                                                                           KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
 ),
@@ -181,24 +181,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |    {}|      |      |      |      |      |
  * | Esc  |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  |  /   |
- * | LCtl |      |      |      |      |      |      |      |      |      |      |      |
+ * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |    <>|      |    ()|      |      |      |      |    []|      |      |
  * | mo(5)|   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | RCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   :  | Left | Down | Rght |
- * | Lsft |      |      |      |      |      |      |      |      |      |      |      |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   :  | Left | Down | Rght |
+ * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = LAYOUT_preonic_grid(
   KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_LEAD,
   LCTL_T(KC_ESC),
-           KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH,
+           KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    RCTL_T(KC_SLSH),
   MO(_BRACKET),
            KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_UP,   MO(_ADJUST),
   OSM(MOD_LSFT),
-           KC_RCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
+           KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
                                                                           KC_COLN, KC_LEFT, KC_DOWN, KC_RGHT
 ),
@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ |      |      |   !  |   $  |   ~  |      |   _  |   |  |/\**\/|   %  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  |      |      |
+ * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  |      | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |  []  |  ()  |   ^  |SCO(V)|   \  |   &  |   =  |  <>  |  ./  | PgUp |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -241,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOL] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, XXXXXXX, KC_UNDS, KC_PIPE, CCMT,    KC_PERC, XXXXXXX,
-  _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, XXXXXXX,
+  _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, _______,
   XXXXXXX, SBKPAIR, RBKPAIR, KC_CIRC, SCMD(LOPT(KC_V)),
                                                KC_BSLS, KC_AMPR, KC_EQL,  ABKPAIR, DOTSLSH, KC_PGUP, XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_END
@@ -254,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+---------------+-----|-----+-----+------|------|
  * |      | Xmas |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  |     |      |      |
  * |------+------+------+------+------+---------------+-----|-----+-----+------|------|
- * |      |swirl |rainbw|breath| hue+ | mod+ |   [|]  |  [  |  ]  |     | [|)  |      |
+ * |      |swirl |rainbw|breath| hue+ | mod+ |   [|]  |  [  |  ]  |     | [|)  | ____ |
  * |------+------+------+------+------+------|--------+-----|-----+-----+------|------|
  * |      |plain |snake |knight| vlk  | Brt+ |   {|}  |  {  |  }  |     | home |      |
  * |------+------+------+------+------+------+--------+-----|-----+-----+------+------|
@@ -264,7 +264,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BRACKET] = LAYOUT_preonic_grid(
   XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, XXXXXXX, DBKPAIR,
   XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
+  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, _______,
   XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, KC_HOME, XXXXXXX,
   _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  XXXXXXX, KC_END,  XXXXXXX
 ),
@@ -335,8 +335,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // rest are sorted alphabetically
     case ABKPAIR:
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("<>");
           set_mods(mod_state);
         } else {
@@ -385,8 +385,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case CBKPAIR:
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("{}");
           set_mods(mod_state);
         } else {
@@ -397,8 +397,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case HBKPAIR: // Half close Half open
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("[)");
           set_mods(mod_state);
         } else {
@@ -409,8 +409,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case CCMT:
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("/**/");
           set_mods(mod_state);
         } else {
@@ -461,8 +461,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case RBKPAIR:
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("()");
           set_mods(mod_state);
         } else {
@@ -473,8 +473,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case SBKPAIR:
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CTRL) {
+          del_mods(MOD_MASK_CTRL);
           SEND_STRING("[]");
           set_mods(mod_state);
         } else {
