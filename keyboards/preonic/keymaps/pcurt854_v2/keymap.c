@@ -117,10 +117,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |    []|    ()|    ap|      |      |      |      |      |      |      |      |
+ * |      |    []|    ()|    ap|      |      |      |      |      |      |      | ? /  |
  * | mo(5)|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)| Cmd  | Left | Down | Rght |
  * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
@@ -130,11 +130,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_ESC),
            KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, RCTL_T(KC_QUOT),
   MO(_BRACKET),
-           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   MO(_ADJUST),
+           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   LT(_ADJUST,KC_SLSH),
   OSM(MOD_LSFT),
            KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
-                                                                          KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
+                                                                          KC_RCMD, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 /* Colemak layer 1
@@ -150,10 +150,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
  * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |    []|    ()|    ap|      |      |      |      |      |      |      |      |
+ * |      |    []|    ()|    ap|      |      |      |      |      |      |      | ? /  |
  * | mo(5)|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   /  | Left | Down | Rght |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)| Cmd  | Left | Down | Rght |
  * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
@@ -163,11 +163,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_ESC),
            KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    RCTL_T(KC_QUOT),
   MO(_BRACKET),
-           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   MO(_ADJUST),
+           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   LT(_ADJUST, KC_SLSH),
   OSM(MOD_LSFT),
            KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
-                                                                          KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
+                                                                          KC_RCMD, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 /* Dvorak layer 2
@@ -183,10 +183,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Esc  |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  |  /   |
  * | LCtl |      |      |      |      |      |      |      |      |      |      | RCtl |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |    <>|      |    ()|      |      |      |      |    []|      |      |
+ * |      |      |    <>|      |    ()|      |      |      |      |    []|      | : ;  |
  * | mo(5)|   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |  Up  | mo(6)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)|   :  | Left | Down | Rght |
+ * | osm  | LCtl | Opt  | Cmd  | mo(4)| Entr | Spc  | tt(3)| Cmd  | Left | Down | Rght |
  * | LSft |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
@@ -196,11 +196,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_ESC),
            KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    RCTL_T(KC_SLSH),
   MO(_BRACKET),
-           KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_UP,   MO(_ADJUST),
+           KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_UP,   LT(_ADJUST, KC_COLN),
   OSM(MOD_LSFT),
            KC_LCTL, KC_LOPT, KC_LCMD, MO(_SYMBOL),
                                                KC_ENT,  KC_SPC,  TT(_NUMPAD),
-                                                                          KC_COLN, KC_LEFT, KC_DOWN, KC_RGHT
+                                                                          KC_RCMD, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 /* Numpad layer 3
@@ -233,9 +233,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  |      | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  []  |  ()  |   ^  |SCO(V)|   \  |   &  |   =  |  <>  |  ./  | PgUp |      |
+ * |      |  []  |  ()  |   ^  |SCO(V)|   \  |   &  |   =  |  <>  |  ./  | PgUp | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ____ | ____ | ____ | ____ |      | ____ | ____ |      |      | Home | PgDn | End  |
+ * | ____ | ____ | ____ | ____ |      | ____ | ____ |      | ____ | Home | PgDn | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_SYMBOL] = LAYOUT_preonic_grid(
@@ -243,8 +243,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, XXXXXXX, KC_UNDS, KC_PIPE, CCMT,    KC_PERC, XXXXXXX,
   _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, _______,
   XXXXXXX, SBKPAIR, RBKPAIR, KC_CIRC, SCMD(LOPT(KC_V)),
-                                               KC_BSLS, KC_AMPR, KC_EQL,  ABKPAIR, DOTSLSH, KC_PGUP, XXXXXXX,
-  _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_END
+                                               KC_BSLS, KC_AMPR, KC_EQL,  ABKPAIR, DOTSLSH, KC_PGUP, _______,
+  _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, _______, KC_HOME, KC_PGDN, KC_END
 ),
 
 /* Bracket layer 5
