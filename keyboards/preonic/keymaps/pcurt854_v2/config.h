@@ -18,6 +18,10 @@
 
 #define TAPPING_TOGGLE 2
 
+#define IGNORE_MOD_TAP_INTERRUPT
+// https://docs.qmk.fm/#/tap_hold
+// exactly our case
+
 
 #define LEADER_PER_KEY_TIMING
 // #define LEADER_TIMEOUT 350
