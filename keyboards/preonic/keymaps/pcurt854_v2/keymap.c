@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ |      |      |   !  |   $  |   ~  |      |   _  |   |  |/\**\/|   %  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  |      | ____ |
+ * | ____ |   @  |   *  |  {}  |      |   `  |   #  |   -  |  ->  |   +  | ____ | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |  []  |  ()  |   ^  |SCO(V)|   \  |   &  |   =  |  <>  |  ./  | PgUp | ____ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -241,32 +241,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOL] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, XXXXXXX, XXXXXXX, KC_EXLM, KC_DLR,  KC_TILD, XXXXXXX, KC_UNDS, KC_PIPE, CCMT,    KC_PERC, XXXXXXX,
-  _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, XXXXXXX, _______,
+  _______, KC_AT,   KC_ASTR, CBKPAIR, XXXXXXX, KC_GRV,  KC_HASH, KC_MINS, ARROW,   KC_PLUS, _______, _______,
   XXXXXXX, SBKPAIR, RBKPAIR, KC_CIRC, SCMD(LOPT(KC_V)),
                                                KC_BSLS, KC_AMPR, KC_EQL,  ABKPAIR, DOTSLSH, KC_PGUP, _______,
   _______, _______, _______, _______, XXXXXXX, _______, _______, XXXXXXX, _______, KC_HOME, KC_PGDN, KC_END
 ),
 
 /* Bracket layer 5
- * ,----------------------------------------------------------------------------------.
- * |      |gradnt|plain | test |      |      |   <|>  |  <  |  >  |     |      | del  |
- * |      |      |      |      |      |      |        |     |     |     |      | brks |
- * |------+------+------+------+------+---------------+-----|-----+-----+------|------|
- * |      | Xmas |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  |     |      |      |
- * |------+------+------+------+------+---------------+-----|-----+-----+------|------|
- * |      |swirl |rainbw|breath| hue+ | mod+ |   [|]  |  [  |  ]  |     | [|)  | ____ |
- * |------+------+------+------+------+------|--------+-----|-----+-----+------|------|
- * |      |plain |snake |knight| vlk  | Brt+ |   {|}  |  {  |  }  |     | home |      |
- * |------+------+------+------+------+------+--------+-----|-----+-----+------+------|
- * | ____ | ____ | ____ | ____ |      |      | /\*|*\/| /\* | *\/ |     | end  |      |
- * `----------------------------------------------------------------------------------'
+ * ,-----------------------------------------------------------------------------------.
+ * |      |gradnt|plain | test |      |      |   <|>  |  <  |  >  |      |      | del  |
+ * |      |      |      |      |      |      |        |     |     |      |      | brks |
+ * |------+------+------+------+------+---------------+-----|-----+------+------|------|
+ * |      | Xmas |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  |      |      |      |
+ * |------+------+------+------+------+---------------+-----|-----+------+------|------|
+ * |      |swirl |rainbw|breath| hue+ | mod+ |   [|]  |  [  |  ]  |      | [|)  |      |
+ * |------+------+------+------+------+------|--------+-----|-----+------+------|------|
+ * |      |plain |snake |knight| vlk  | Brt+ |   {|}  |  {  |  }  | btn1 | msup | btn2 |
+ * |------+------+------+------+------+------+--------+-----|-----+------+------+------|
+ * | ____ | ____ | ____ | ____ |      |      | /\*|*\/| /\* | *\/ | mslt | msdn | msrt |
+ * `-----------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
   XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, XXXXXXX, DBKPAIR,
   XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, _______,
-  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, XXXXXXX, KC_HOME, XXXXXXX,
-  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  XXXXXXX, KC_END,  XXXXXXX
+  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
+  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_BTN1, KC_MS_U, KC_BTN2,
+  _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  KC_MS_L, KC_MS_D, KC_MS_R
 ),
 
 /* Adjust layer 6
