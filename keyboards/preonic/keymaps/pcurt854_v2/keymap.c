@@ -289,17 +289,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  *
- * dsp+-:              needs QuickShade
- * mv win clkw:        needs Rectangle
- * nw mv mx wind:      needs Rectange
- * print screen:       with Keyboard/Shortcuts/Screenshots/Screenshot and recording options
- * virus scan:         needs Sophos Home
+ * dsp+-:              for QuickShade
+ * mv win clkw:        for Rectangle
+ * new tab:            for Google Chrome
+ * nw mv mx win:       for Rectangle
+ * print screen:       for Mac Sys Pref/Keyboard/Shortcuts/Screenshots/Screenshot
+ * show desktop:       for Mac Sys Pref/Keyboard/Shortcuts/Mission Control/Show Desktop
+ * virus scan:         for Sophos Home
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
   XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
-                             LCMD(KC_F4),
+                             HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
                                                                  LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS, SCMD(KC_V),
