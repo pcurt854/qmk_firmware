@@ -16,6 +16,10 @@
 
 #pragma once
 
+
+#define MOUSEKEY_INTERVAL 16
+
+
 #define TAPPING_TOGGLE 2
 
 #define IGNORE_MOD_TAP_INTERRUPT
