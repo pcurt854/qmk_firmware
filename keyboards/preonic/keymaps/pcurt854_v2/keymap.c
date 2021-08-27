@@ -69,9 +69,8 @@ float caps_lock_off_song[][2] = SONG(GOODBYE_SOUND);
 #define LAYER3_SONG H__NOTE(_C5),
 #define LAYER4_SONG H__NOTE(_C6),
 #define LAYER5_SONG H__NOTE(_C7),
-#define LAYER6_SONG S__NOTE(_C2),
-// make layer 6 sound low and short so it doesn't interfere with other sound
-// we are looking at the keyboard anyway
+// #define LAYER6_SONG S__NOTE(_C2),
+#define LAYER6_SONG H__NOTE(_C8),
 float higher_layer_on_songs[][1][2] = {
   SONG(LAYER3_SONG),
   SONG(LAYER4_SONG),
