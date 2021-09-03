@@ -275,14 +275,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | F11  | F12  | F13  | F14  | F15  | F16  | F17  | F18  | F19  | F20  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Qwerty|Colemk|Dvorak|      | new  |      |      |      |      |Print |RESET |
- * |      |      |      |      |      | Tab  |      |      |      |      |screen|RESET |
+ * |      |Qwerty|Colemk|Dvorak|      | new  |      |      |      |      |Print |      |
+ * |      |      |      |      |      | Tab  |      |      |      |      |screen|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Audio |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |      |screen|      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      | Caps |Virus |      |Nw mv | Mute | vol+ |      | dsp+ |      |
- * |      |      |      |      |scan  |      |mx win|      |      |      |      |      |
+ * |      |RESET |      | Caps |Virus |      |Nw mv | Mute | vol+ |      | dsp+ |      |
+ * |      |RESET |      |      |scan  |      |mx win|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ |      |      |      |      | vol- |      | dsp- |      |
  * |      |      |      |      |      |      |      |      |      |      |      |      |
@@ -298,12 +298,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), RESET,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
                                                                  LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS, SCMD(KC_V),
+  XXXXXXX, RESET,   XXXXXXX, KC_CAPS, SCMD(KC_V),
                                                XXXXXXX, NWMVMXW, KC__MUTE, KC__VOLUP,   XXXXXXX, LCAG(KC_UP), XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC__VOLDOWN, XXXXXXX, LCAG(KC_DOWN), XXXXXXX
 )
