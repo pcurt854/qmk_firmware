@@ -278,8 +278,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |Qwerty|Colemk|Dvorak|      | new  |      |      |      |      |Print |      |
  * |      |      |      |      |      | Tab  |      |      |      |      |screen|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |Audio |Sleep |show  |      |      |finder|mv win|      |Lock  |      |      |
- * |      |      |      |Dsktp |      |      |Hddn  |clkw  |      |screen|      |      |
+ * |      |Audio |Sleep |show  |      |      |finder|mv win|mv win|Lock  |      |      |
+ * |      |      |      |Dsktp |      |      |Hddn  |clkw  |c clkw|screen|      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |RESET |      | Caps |Virus |      |Nw mv | Mute | vol+ |      | dsp+ |      |
  * |      |RESET |      |      |scan  |      |mx win|      |      |      |      |      |
@@ -302,7 +302,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
-                                                                 LCA(KC_J), XXXXXXX, C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
+                                                                 LCA(KC_J), MEH(KC_J),  C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
   XXXXXXX, RESET,   XXXXXXX, KC_CAPS, SCMD(KC_V),
                                                XXXXXXX, NWMVMXW, KC__MUTE, KC__VOLUP,   XXXXXXX, LCAG(KC_UP), XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC__VOLDOWN, XXXXXXX, LCAG(KC_DOWN), XXXXXXX
