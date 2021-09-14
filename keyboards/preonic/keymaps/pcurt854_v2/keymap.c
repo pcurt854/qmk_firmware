@@ -46,9 +46,10 @@ enum preonic_keycodes {
   CCMTLT,
   CCMTRT,
   DOTSLSH,
-  VLKTOGG,
   NCBKTAB,
   NWMVMXW,
+  TERMINAL,
+  VLKTOGG,
   YIELDS
 };
 
@@ -275,8 +276,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | F11  | F12  | F13  | F14  | F15  | F16  | F17  | F18  | F19  | F20  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Qwerty|Colemk|Dvorak|      | new  |      |      |      |      |Print |      |
- * |      |      |      |      |      | Tab  |      |      |      |      |screen|      |
+ * |      |Qwerty|Colemk|Dvorak| new  | new  |      |      |      |      |Print |      |
+ * |      |      |      |      | teRm | Tab  |      |      |      |      |screen|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Audio |Sleep |show  |      |      |finder|mv win|mv win|Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |c clkw|screen|      |      |
@@ -298,7 +299,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  XXXXXXX, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  TERMINAL, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
@@ -459,10 +460,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         if (mod_state & MOD_MASK_SHIFT) {
           del_mods(MOD_MASK_SHIFT);
-          SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
+          SEND_STRING(SS_LCMD("n")
+                      SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_J)
+                      SS_DELAY(100) SS_TAP(X_M)
+                      SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
           set_mods(mod_state);
         } else {
-          SEND_STRING(SS_LCMD("n") SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
+          SEND_STRING(SS_LCMD("n")
+                      SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J)
+                      SS_DELAY(100) SS_TAP(X_M)
+                      SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
         }
       }
       return false;
@@ -487,6 +494,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           set_mods(mod_state);
         } else {
           SEND_STRING("[]"SS_TAP(X_LEFT));
+        }
+      }
+      return false;
+      break;
+    case TERMINAL: // new teRminal // with Shift: create 2
+      if (record->event.pressed) {
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING(SS_LCMD(" ") SS_DELAY(500) "terminal.app\n"
+                      SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_3) SS_UP(X_LCTL) SS_UP(X_LOPT)
+                      SS_DELAY(100) SS_LCMD("n")
+                      SS_DELAY(200) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_1) SS_UP(X_LCTL) SS_UP(X_LOPT)
+                      );
+          set_mods(mod_state);
+        } else {
+          SEND_STRING(SS_LCMD(" ") SS_DELAY(500) "terminal.app\n"
+                      SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_3) SS_UP(X_LCTL) SS_UP(X_LOPT)
+                      );
         }
       }
       return false;
