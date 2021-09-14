@@ -439,9 +439,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case DBKPAIR:
+    case DBKPAIR: // right and 2 backspaces to delete a pair of brackets
+      // with Shift: double the above, so can delete C style comment
       if (record->event.pressed) {
-        SEND_STRING(SS_TAP(X_RIGHT) SS_DELAY(200) SS_TAP(X_BSPACE) SS_TAP(X_BSPACE));
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          SEND_STRING(SS_TAP(X_RIGHT) SS_TAP(X_RIGHT) SS_DELAY(200) SS_TAP(X_BSPACE) SS_TAP(X_BSPACE) SS_TAP(X_BSPACE) SS_TAP(X_BSPACE));
+          set_mods(mod_state);
+        } else {
+          SEND_STRING(SS_TAP(X_RIGHT) SS_DELAY(200) SS_TAP(X_BSPACE) SS_TAP(X_BSPACE));
+        }
       }
       return false;
       break;
