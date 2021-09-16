@@ -509,14 +509,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         if (mod_state & MOD_MASK_SHIFT) {
           del_mods(MOD_MASK_SHIFT);
-          SEND_STRING(SS_LCMD(" ") SS_DELAY(500) "terminal.app\n"
+          SEND_STRING(SS_LCMD(" ") SS_DELAY(100) "terminal.app" SS_DELAY(500) SS_TAP(X_ENT)
                       SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_3) SS_UP(X_LCTL) SS_UP(X_LOPT)
                       SS_DELAY(100) SS_LCMD("n")
                       SS_DELAY(200) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_1) SS_UP(X_LCTL) SS_UP(X_LOPT)
                       );
           set_mods(mod_state);
         } else {
-          SEND_STRING(SS_LCMD(" ") SS_DELAY(500) "terminal.app\n"
+          SEND_STRING(SS_LCMD(" ") SS_DELAY(100) "terminal.app" SS_DELAY(500) SS_TAP(X_ENT)
                       SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_3) SS_UP(X_LCTL) SS_UP(X_LOPT)
                       );
         }
