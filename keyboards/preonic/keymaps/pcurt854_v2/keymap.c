@@ -303,7 +303,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
-                                                                 LCA(KC_J), MEH(KC_J),  C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
+                                                                 LCA(KC_J), LCA(KC_K),  C(LCMD(KC_Q)), XXXXXXX, XXXXXXX,
   XXXXXXX, RESET,   XXXXXXX, KC_CAPS, SCMD(KC_V),
                                                XXXXXXX, NWMVMXW, KC__MUTE, KC__VOLUP,   XXXXXXX, LCAG(KC_UP), XXXXXXX,
   _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC__VOLDOWN, XXXXXXX, LCAG(KC_DOWN), XXXXXXX
@@ -468,7 +468,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (mod_state & MOD_MASK_SHIFT) {
           del_mods(MOD_MASK_SHIFT);
           SEND_STRING(SS_LCMD("n")
-                      SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_J)
+                      SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_K)
                       SS_DELAY(100) SS_TAP(X_M)
                       SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
           set_mods(mod_state);
