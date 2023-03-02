@@ -562,12 +562,12 @@ const rgblight_segment_t PROGMEM my_shift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {7, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_numpad_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4, 2, HSV_ORANGE},
+    {4, 1, HSV_ORANGE},
     {1, 1, HSV_ORANGE},
     {8, 1, HSV_ORANGE}
 );
 const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4, 2, HSV_CHARTREUSE},
+    {5, 1, HSV_CHARTREUSE},
     {1, 1, HSV_CHARTREUSE},
     {8, 1, HSV_CHARTREUSE}
 );
@@ -576,9 +576,8 @@ const rgblight_segment_t PROGMEM my_bracket_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {8, 1, HSV_CYAN}
 );
 const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4, 2, HSV_MAGENTA},
-    {1, 1, HSV_MAGENTA},
-    {8, 1, HSV_MAGENTA}
+    {4, 1, HSV_MAGENTA},
+    {1, 1, HSV_MAGENTA}
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -700,37 +699,31 @@ void matrix_scan_user(void) {
     //  did_leader_succeed = true;
     //}
 
-    /*
-    SEQ_ONE_KEY(KC_D) {
-      SEND_STRING("{}" SS_TAP(X_LEFT));
-      did_leader_succeed = true;
-    }
-    */
+    //SEQ_ONE_KEY(KC_D) {
+    //  SEND_STRING("{}" SS_TAP(X_LEFT));
+    //  did_leader_succeed = true;
+    //}
 
     SEQ_ONE_KEY(KC_DOT) {
       SEND_STRING(".00");
       did_leader_succeed = true;
     }
 
-    /*
-    // Html Tags
-    SEQ_TWO_KEYS(KC_H, KC_T) {
-      SEND_STRING("<></>"SS_TAP(X_LEFT));
-      did_leader_succeed = true;
-    }
-    */
+    //// Html Tags
+    //SEQ_TWO_KEYS(KC_H, KC_T) {
+    //  SEND_STRING("<></>"SS_TAP(X_LEFT));
+    //  did_leader_succeed = true;
+    //}
 
     SEQ_TWO_KEYS(KC_I, KC_C) {
       SEND_STRING("In Christ,");
       did_leader_succeed = true;
     }
 
-    /*
-    SEQ_ONE_KEY(KC_J) {
-      SEND_STRING("<>" SS_TAP(X_LEFT));
-      did_leader_succeed = true;
-    }
-    */
+    //SEQ_ONE_KEY(KC_J) {
+    //  SEND_STRING("<>" SS_TAP(X_LEFT));
+    //  did_leader_succeed = true;
+    //}
 
     SEQ_ONE_KEY(KC_K) {
       SEND_STRING(",000");
@@ -763,19 +756,15 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
-    /*
-    SEQ_ONE_KEY(KC_X) {
-      SEND_STRING("()" SS_TAP(X_LEFT));
-      did_leader_succeed = true;
-    }
-    */
+    //SEQ_ONE_KEY(KC_X) {
+    //  SEND_STRING("()" SS_TAP(X_LEFT));
+    //  did_leader_succeed = true;
+    //}
 
-    /*
-    SEQ_ONE_KEY(KC_Z) {
-      SEND_STRING("[]" SS_TAP(X_LEFT));
-      did_leader_succeed = true;
-    }
-    */
+    //SEQ_ONE_KEY(KC_Z) {
+    //  SEND_STRING("[]" SS_TAP(X_LEFT));
+    //  did_leader_succeed = true;
+    //}
 
     leader_end();
   }
