@@ -469,13 +469,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           del_mods(MOD_MASK_SHIFT);
           SEND_STRING(SS_LCMD("n")
                       SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_K)
-                      SS_DELAY(100) SS_TAP(X_M)
+                      SS_DELAY(100) SS_TAP(X_X)
                       SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
           set_mods(mod_state);
         } else {
           SEND_STRING(SS_LCMD("n")
                       SS_DELAY(500) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_J)
-                      SS_DELAY(100) SS_TAP(X_M)
+                      SS_DELAY(100) SS_TAP(X_X)
                       SS_DELAY(100) SS_TAP(X_RIGHT) SS_DELAY(100) SS_TAP(X_DOWN) SS_UP(X_LOPT) SS_UP(X_LCTL));
         }
       }
