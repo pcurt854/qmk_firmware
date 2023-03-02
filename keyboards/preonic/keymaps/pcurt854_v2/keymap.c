@@ -572,8 +572,7 @@ const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {8, 1, HSV_CHARTREUSE}
 );
 const rgblight_segment_t PROGMEM my_bracket_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4, 2, HSV_CYAN},
-    {1, 1, HSV_CYAN},
+    {5, 1, HSV_CYAN},
     {8, 1, HSV_CYAN}
 );
 const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
