@@ -249,23 +249,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Bracket layer 5
  * ,-----------------------------------------------------------------------------------.
- * |      |gradnt|plain | test |      |      |   <|>  |  <  |  >  |      |      | del  |
+ * |      |plain |gradnt| test |      |      |   <|>  |  <  |  >  |      |      | del  |
  * |      |      |      |      |      |      |        |     |     |      | whup | brks |
  * |------+------+------+------+------+---------------+-----|-----+------+------|------|
- * |      | Xmas |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  | whlt | whdn | whrt |
+ * |      |plain |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  | whlt | whdn | whrt |
  * |------+------+------+------+------+---------------+-----|-----+------+------|------|
- * |      |swirl |rainbw|breath| hue+ | mod+ |   [|]  |  [  |  ]  |      | [|)  |      |
+ * |      |rAinbw|Swirl |breath| hue+ | mod+ |   [|]  |  [  |  ]  |      | [|)  |      |
  * |------+------+------+------+------+------|--------+-----|-----+------+------|------|
- * |      |plain |snake |knight| vlk  | Brt+ |   {|}  |  {  |  }  | btn1 | msup | btn2 |
+ * |      |Znake | Xmas |Cnight| vlk  | Brt+ |   {|}  |  {  |  }  | btn1 | msup | btn2 |
  * |------+------+------+------+------+------+--------+-----|-----+------+------+------|
  * | ____ | ____ | ____ | ____ |      |      | /\*|*\/| /\* | *\/ | mslt | msdn | msrt |
  * `-----------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
-  XXXXXXX, RGB_M_G,  RGB_M_P,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, KC_WH_U, DBKPAIR,
-  XXXXXXX, RGB_M_X,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_WH_L, KC_WH_D, KC_WH_R,
-  XXXXXXX, RGB_M_SW, RGB_M_R,  RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
-  XXXXXXX, RGB_M_P,  RGB_M_SN, RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_BTN1, KC_MS_U, KC_BTN2,
+  XXXXXXX, RGB_M_P,  RGB_M_G,  RGB_M_T, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, KC_WH_U, DBKPAIR,
+  XXXXXXX, RGB_M_P,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_WH_L, KC_WH_D, KC_WH_R,
+  XXXXXXX, RGB_M_R,  RGB_M_SW, RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
+  XXXXXXX, RGB_M_SN, RGB_M_X,  RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_BTN1, KC_MS_U, KC_BTN2,
   _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  KC_MS_L, KC_MS_D, KC_MS_R
 ),
 
