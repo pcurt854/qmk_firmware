@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad layer 3
  * ,-----------------------------------------------------------------------------------.
- * | ____ |      |      |      |      |      |      |      |      |      |      | ____ |
+ * | ____ |play1 |play2 |      |      |      |      |      | rec2 | rec1 |rstop | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ____ |      |      |   E  |      |      |      |   +  |   -  |   *  |   /  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -217,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_preonic_grid(
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+  _______, DM_PLY1, DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC2, DM_REC1, DM_RSTP, _______,
   _______, XXXXXXX, XXXXXXX, KC_E,    XXXXXXX, XXXXXXX, XXXXXXX, KC_PLUS, KC_MINS, KC_ASTR, KC_SLSH, XXXXXXX,
   _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_COMM, KC_DOT,  _______, XXXXXXX,

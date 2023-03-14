@@ -19,6 +19,8 @@
 
 #define MOUSEKEY_INTERVAL 16
 
+#define DYNAMIC_MACRO_NO_NESTING
+
 
 #define TAPPING_TOGGLE 2
 
