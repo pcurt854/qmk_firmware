@@ -274,7 +274,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * The control sequences are highly personal.  Please change to adapt to your own system.
  *
  * ,-----------------------------------------------------------------------------------.
- * |      | F11  | F12  | F13  | F14  | F15  | F16  | F17  | F18  | F19  | F20  |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |Qwerty|Colemk|Dvorak| new  | new  |      |      |      |      |Print |      |
  * |      |      |      |      | teRm | Tab  |      |      |      |      |screen|      |
@@ -298,8 +298,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * virus scan:         for Sophos Home
  */
 [_ADJUST] = LAYOUT_preonic_grid(
-  XXXXXXX, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK,  TERMINAL, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK, TERMINAL, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
