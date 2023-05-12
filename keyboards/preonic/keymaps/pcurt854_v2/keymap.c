@@ -49,6 +49,7 @@ enum preonic_keycodes {
   NCBKTAB,
   NWMVMXW,
   TERMINAL,
+  UTPSTLK,
   VLKTOGG,
   YIELDS
 };
@@ -276,8 +277,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |play1 |play2 |      |      |      |      |      | rec2 | rec1 |rstop |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Qwerty|Colemk|Dvorak| new  | new  |      |      |      |      |Print |      |
- * |      |      |      |      | teRm | Tab  |      |      |      |      |screen|      |
+ * |      |Qwerty|Colemk|Dvorak| new  | new  |      |uTube |      |      |Print |      |
+ * |      |      |      |      | teRm | Tab  |      |PaSTe |      |      |screen|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Audio |Sleep |show  |      |      |finder|mv win|mv win|Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |c clkw|screen|      |      |
@@ -292,6 +293,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * dsp+-:              for QuickShade
  * mv win clkw:        for Rectangle
  * new tab:            for Google Chrome
+ * uTube paste link    for Google Chrome
  * nw mv mx win:       for Rectangle
  * print screen:       for Mac Sys Pref/Keyboard/Shortcuts/Screenshots/Screenshot
  * show desktop:       for Mac Sys Pref/Keyboard/Shortcuts/Mission Control/Show Desktop
@@ -299,7 +301,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, DM_PLY1, DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC2, DM_REC1, DM_RSTP,    XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK, TERMINAL, NCBKTAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK, TERMINAL, NCBKTAB, XXXXXXX, UTPSTLK, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
@@ -520,6 +522,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                       SS_DELAY(300) SS_DOWN(X_LCTL) SS_DOWN(X_LOPT) SS_TAP(X_3) SS_UP(X_LCTL) SS_UP(X_LOPT)
                       );
         }
+      }
+      return false;
+      break;
+    case UTPSTLK: // right click utube video and select "copy URL with current time" then move mouse over a link in bookmark bar, run "Utube paste link" to update the bookmark to new URL
+      if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN2)       // right click to open drop down menu
+          SS_DELAY(300) "e"              // Edit
+          SS_TAP(X_ENT)                  // opens edit window
+          SS_DELAY(1200) SS_TAP(X_TAB)   // go to second field
+          SS_DELAY(100) SS_LCMD("v")     // Paste
+        );
       }
       return false;
       break;
