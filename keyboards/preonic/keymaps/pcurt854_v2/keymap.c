@@ -394,7 +394,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("{}");
           set_mods(mod_state);
         } else {
-          SEND_STRING("{}"SS_TAP(X_LEFT));
+          SEND_STRING("{}" SS_DELAY(200) SS_TAP(X_LEFT));
         }
       }
       return false;
