@@ -669,35 +669,35 @@ void matrix_scan_user(void) {
     // sort by first key
 
     SEQ_ONE_KEY(KC_1) {
-      SEND_STRING(":15");
+      SEND_STRING_DELAY(":15", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_1, KC_1) {
-      SEND_STRING(":15 PM");
+      SEND_STRING_DELAY(":15 PM", 50);
       did_leader_succeed = true;
     }
     SEQ_ONE_KEY(KC_2) {
-      SEND_STRING(":30");
+      SEND_STRING_DELAY(":30", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_2, KC_2) {
-      SEND_STRING(":30 PM");
+      SEND_STRING_DELAY(":30 PM", 50);
       did_leader_succeed = true;
     }
     SEQ_ONE_KEY(KC_3) {
-      SEND_STRING(":45");
+      SEND_STRING_DELAY(":45", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_3, KC_3) {
-      SEND_STRING(":45 PM");
+      SEND_STRING_DELAY(":45 PM", 50);
       did_leader_succeed = true;
     }
     SEQ_ONE_KEY(KC_4) {
-      SEND_STRING(":00");
+      SEND_STRING_DELAY(":00", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_4, KC_4) {
-      SEND_STRING(":00 PM");
+      SEND_STRING_DELAY(":00 PM", 50);
       did_leader_succeed = true;
     }
 
@@ -706,78 +706,46 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
-    //SEQ_ONE_KEY(KC_C) {
-    //  // SEND_STRING(SS_TAP(X_CAPS));
-    //  SEND_STRING("/**/" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
-
-    //SEQ_ONE_KEY(KC_D) {
-    //  SEND_STRING("{}" SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
-
     SEQ_ONE_KEY(KC_DOT) {
-      SEND_STRING(".00");
+      SEND_STRING_DELAY(".00", 50);
       did_leader_succeed = true;
     }
 
-    //// Html Tags
-    //SEQ_TWO_KEYS(KC_H, KC_T) {
-    //  SEND_STRING("<></>"SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
-
-    SEQ_TWO_KEYS(KC_I, KC_C) {
-      SEND_STRING("In Christ,");
+    SEQ_TWO_KEYS(KC_H, KC_H) {
+      SEND_STRING_DELAY("HEREHERE", 50);
       did_leader_succeed = true;
     }
-
-    //SEQ_ONE_KEY(KC_J) {
-    //  SEND_STRING("<>" SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
 
     SEQ_ONE_KEY(KC_K) {
-      SEND_STRING(",000");
+      SEND_STRING_DELAY(",000", 50);
       did_leader_succeed = true;
     }
 
     SEQ_TWO_KEYS(KC_T, KC_A) {
-      SEND_STRING("Thanks a lot!");
+      SEND_STRING_DELAY("Thanks a lot!", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_T, KC_S) {
-      SEND_STRING("Thanks!");
+      SEND_STRING_DELAY("Thanks!", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_T, KC_V) {
-      SEND_STRING("Thank you very much!");
+      SEND_STRING_DELAY("Thank you very much!", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_T, KC_Y) {
-      SEND_STRING("Thank you!");
+      SEND_STRING_DELAY("Thank you!", 50);
       did_leader_succeed = true;
     }
 
     SEQ_TWO_KEYS(KC_U, KC_K) {
-      SEND_STRING("United Kingdom");
+      SEND_STRING_DELAY("United Kingdom", 50);
       did_leader_succeed = true;
     }
     SEQ_TWO_KEYS(KC_U, KC_S) {
-      SEND_STRING("United States");
+      SEND_STRING_DELAY("United States", 50);
       did_leader_succeed = true;
     }
-
-    //SEQ_ONE_KEY(KC_X) {
-    //  SEND_STRING("()" SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
-
-    //SEQ_ONE_KEY(KC_Z) {
-    //  SEND_STRING("[]" SS_TAP(X_LEFT));
-    //  did_leader_succeed = true;
-    //}
 
     leader_end();
   }
