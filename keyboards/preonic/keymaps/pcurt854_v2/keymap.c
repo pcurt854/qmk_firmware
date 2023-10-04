@@ -418,7 +418,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("/**/");
           set_mods(mod_state);
         } else {
-          SEND_STRING("/**/" SS_DELAY(100) SS_TAP(X_LEFT) SS_DELAY(100) SS_TAP(X_LEFT));
+          SEND_STRING_DELAY("/**/" SS_DELAY(30) SS_TAP(X_LEFT) SS_DELAY(30) SS_TAP(X_LEFT), 30);
         }
       }
       return false;
