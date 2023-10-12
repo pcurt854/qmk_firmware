@@ -711,8 +711,8 @@ void matrix_scan_user(void) {
       did_leader_succeed = true;
     }
 
-    SEQ_TWO_KEYS(KC_H, KC_H) {
-      SEND_STRING_DELAY("HEREHERE", 50);
+    SEQ_ONE_KEY(KC_H) {
+      SEND_STRING_DELAY("// HEREHERE", 50);
       did_leader_succeed = true;
     }
 
