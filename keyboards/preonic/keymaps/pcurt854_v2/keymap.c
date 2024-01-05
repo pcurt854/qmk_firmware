@@ -208,20 +208,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | ____ |      |      |      |      |      |      |      |      |      |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |      |      |   E  |      |      |      |   +  |   -  |   *  |   /  |      |
+ * | ____ |   7  |   5  |   2  |      |      |   1  |      |      |   0  |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ____ |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | ____ |
+ * | ____ |      |   4  |      |      |      |      |   9  |      |   6  |      | ____ |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |   ^  |      |      |      |   =  |   ,  |   .  | ____ |      |
+ * |      |      |      |      |      |   8  |   3  |      |   ,  |   .  | ____ |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ | ____ | ____ | ____ | tg(3)| ____ | ____ | ____ | ____ |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_preonic_grid(
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-  _______, XXXXXXX, XXXXXXX, KC_E,    XXXXXXX, XXXXXXX, XXXXXXX, KC_PLUS, KC_MINS, KC_ASTR, KC_SLSH, XXXXXXX,
-  _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, KC_CIRC, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_COMM, KC_DOT,  _______, XXXXXXX,
+  _______, KC_7,    KC_5,    KC_2,    XXXXXXX, XXXXXXX, KC_1,    XXXXXXX, XXXXXXX, KC_0,    XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, KC_4,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    XXXXXXX, KC_6,    XXXXXXX, _______,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    KC_3,    XXXXXXX, KC_COMM, KC_DOT,  _______, XXXXXXX,
   _______, _______, _______, _______, _______, _______, _______, TG(_NUMPAD),
                                                                           _______, _______, _______, _______
 ),
