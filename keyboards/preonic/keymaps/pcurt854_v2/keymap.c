@@ -389,11 +389,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case BTN1X2:
-// HEREHERE
+       if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN1) SS_TAP(X_BTN1));
+      }
       return false;
       break;
     case BTN1X3:
-// HEREHERE
+       if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN1) SS_TAP(X_BTN1) SS_TAP(X_BTN1));
+      }
       return false;
       break;
     case CBKPAIR:
