@@ -44,6 +44,8 @@ enum preonic_keycodes {
   DBKPAIR,
   BTN1X2,
   BTN1X3,
+  CPYALL,
+  PSTALL,
   CCMT,
   CCMTLT,
   CCMTRT,
@@ -213,7 +215,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ____ |   3  |   4  |   0  |      |      |      |   9  |      |   6  |      | ____ |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |   8  |      |      |   ,  |   .  | ____ |      |
+ * |      |      |      |cp all|paste |   8  |      |      |   ,  |   .  | ____ |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | ____ | ____ | ____ | ____ | ____ | ____ | ____ | tg(3)| ____ | ____ | ____ | ____ |
  * `-----------------------------------------------------------------------------------'
@@ -222,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, BTN1X2,  BTN1X3,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   _______, KC_7,    KC_5,    KC_2,    XXXXXXX, XXXXXXX, KC_1,    XXXXXXX, XXXXXXX, KC_0,    XXXXXXX, XXXXXXX,
   _______, KC_3,    KC_4,    KC_0,    XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    XXXXXXX, KC_6,    XXXXXXX, _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_COMM, KC_DOT,  _______, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, CPYALL,  PSTALL,  KC_8,    XXXXXXX,    XXXXXXX, KC_COMM, KC_DOT,  _______, XXXXXXX,
   _______, _______, _______, _______, _______, _______, _______, TG(_NUMPAD),
                                                                           _______, _______, _______, _______
 ),
@@ -397,6 +399,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case BTN1X3:
        if (record->event.pressed) {
         SEND_STRING(SS_TAP(X_BTN1) SS_TAP(X_BTN1) SS_TAP(X_BTN1));
+      }
+      return false;
+      break;
+    case CPYALL:
+       if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN1) SS_DELAY(100) SS_TAP(X_BTN1) SS_DELAY(100) SS_LCMD("ac"));
+      }
+      return false;
+      break;
+    case PSTALL:
+       if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN1) SS_DELAY(100) SS_TAP(X_BTN1) SS_DELAY(100) SS_LCMD("av") SS_TAP(X_ENTER));
       }
       return false;
       break;
