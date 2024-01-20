@@ -42,6 +42,8 @@ enum preonic_keycodes {
   CBKPAIR,
   HBKPAIR,
   DBKPAIR,
+  BTN1X2,
+  BTN1X3,
   CCMT,
   CCMTLT,
   CCMTRT,
@@ -205,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad layer 3
  * ,-----------------------------------------------------------------------------------.
- * | ____ |      |      |      |      |      |      |      |      |      |      | ____ |
+ * | ____ |      |btn1x2|btn1x3|      |      |      |      |      |      |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ____ |   7  |   5  |   2  |      |      |   1  |      |      |   0  |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -217,7 +219,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_preonic_grid(
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+  _______, XXXXXXX, BTN1X2,  BTN1X3,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   _______, KC_7,    KC_5,    KC_2,    XXXXXXX, XXXXXXX, KC_1,    XXXXXXX, XXXXXXX, KC_0,    XXXXXXX, XXXXXXX,
   _______, KC_3,    KC_4,    KC_0,    XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    XXXXXXX, KC_6,    XXXXXXX, _______,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_COMM, KC_DOT,  _______, XXXXXXX,
@@ -343,7 +345,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("<>");
           set_mods(mod_state);
         } else {
-          SEND_STRING("<>" SS_DELAY(200) SS_TAP(X_LEFT));
+          SEND_STRING("<>" SS_TAP(X_LEFT));
         }
       }
       return false;
@@ -386,6 +388,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case BTN1X2:
+// HEREHERE
+      return false;
+      break;
+    case BTN1X3:
+// HEREHERE
+      return false;
+      break;
     case CBKPAIR:
       if (record->event.pressed) {
         if (mod_state & MOD_MASK_CTRL) {
@@ -393,7 +403,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("{}");
           set_mods(mod_state);
         } else {
-          SEND_STRING("{}" SS_DELAY(200) SS_TAP(X_LEFT));
+          SEND_STRING("{}" SS_TAP(X_LEFT));
         }
       }
       return false;
@@ -405,7 +415,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("[)");
           set_mods(mod_state);
         } else {
-          SEND_STRING("[)" SS_DELAY(200) SS_TAP(X_LEFT));
+          SEND_STRING("[)" SS_TAP(X_LEFT));
         }
       }
       return false;
@@ -417,7 +427,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("/**/");
           set_mods(mod_state);
         } else {
-          SEND_STRING_DELAY("/**/" SS_DELAY(30) SS_TAP(X_LEFT) SS_DELAY(30) SS_TAP(X_LEFT), 30);
+          SEND_STRING("/**/" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
         }
       }
       return false;
@@ -489,7 +499,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("()");
           set_mods(mod_state);
         } else {
-          SEND_STRING("()" SS_DELAY(200) SS_TAP(X_LEFT));
+          SEND_STRING("()" SS_TAP(X_LEFT));
         }
       }
       return false;
@@ -501,7 +511,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("[]");
           set_mods(mod_state);
         } else {
-          SEND_STRING("[]" SS_DELAY(200) SS_TAP(X_LEFT));
+          SEND_STRING("[]" SS_TAP(X_LEFT));
         }
       }
       return false;
