@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad layer 3
  * ,-----------------------------------------------------------------------------------.
- * | ____ |      |btn1x2|btn1x3|      |      |      |      |      |      |      | ____ |
+ * | ____ |      |      |      |      |      |      |      |      |      |      | ____ |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ____ |   7  |   5  |   2  |      |      |   1  |      |      |   0  |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -221,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_preonic_grid(
-  _______, XXXXXXX, BTN1X2,  BTN1X3,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   _______, KC_7,    KC_5,    KC_2,    XXXXXXX, XXXXXXX, KC_1,    XXXXXXX, XXXXXXX, KC_0,    XXXXXXX, XXXXXXX,
   _______, KC_3,    KC_4,    KC_0,    XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    XXXXXXX, KC_6,    XXXXXXX, _______,
   XXXXXXX, XXXXXXX, XXXXXXX, CPYALL,  PSTALL,  KC_8,    XXXXXXX,    XXXXXXX, KC_COMM, KC_DOT,  _______, XXXXXXX,
@@ -253,10 +253,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Bracket layer 5
  * ,-----------------------------------------------------------------------------------.
- * |      | test |gradnt|plain |      |      |   <|>  |  <  |  >  |      |      | del  |
- * |      |      |      |      |      |      |        |     |     |      | whup | brks |
+ * |      |      | bnt1 | btn1 |      |      |   <|>  |  <  |  >  |      |      | del  |
+ * |      |      |  x2  |  x3  |      |      |        |     |     |      | whup | brks |
  * |------+------+------+------+------+---------------+-----|-----+------+------|------|
- * |      |plain |plain |plain | Rgb  | saT+ |   (|)  |  (  |  )  | whlt | whdn | whrt |
+ * |      | test |gradnt|plain | Rgb  | saT+ |   (|)  |  (  |  )  | whlt | whdn | whrt |
  * |------+------+------+------+------+---------------+-----|-----+------+------|------|
  * |      |rAinbw|Swirl |breath| hue+ | mod+ |   [|]  |  [  |  ]  |      | [|)  |      |
  * |------+------+------+------+------+------|--------+-----|-----+------+------|------|
@@ -266,8 +266,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_BRACKET] = LAYOUT_preonic_grid(
-  XXXXXXX, RGB_M_T,  RGB_M_G,  RGB_M_P, XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, KC_WH_U, DBKPAIR,
-  XXXXXXX, RGB_M_P,  RGB_M_P,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_WH_L, KC_WH_D, KC_WH_R,
+  XXXXXXX, XXXXXXX,  BTN1X2,   BTN1X3,  XXXXXXX, XXXXXXX, ABKPAIR, KC_LABK, KC_RABK, XXXXXXX, KC_WH_U, DBKPAIR,
+  XXXXXXX, RGB_M_T,  RGB_M_G,  RGB_M_P, RGB_TOG, RGB_SAI, RBKPAIR, KC_LPRN, KC_RPRN, KC_WH_L, KC_WH_D, KC_WH_R,
   XXXXXXX, RGB_M_R,  RGB_M_SW, RGB_M_B, RGB_HUI, RGB_MOD, SBKPAIR, KC_LBRC, KC_RBRC, XXXXXXX, HBKPAIR, XXXXXXX,
   XXXXXXX, RGB_M_SN, RGB_M_X,  RGB_M_K, VLKTOGG, RGB_VAI, CBKPAIR, KC_LCBR, KC_RCBR, KC_BTN1, KC_MS_U, KC_BTN2,
   _______, _______,  _______,  _______, XXXXXXX, XXXXXXX, CCMT,    CCMTLT,  CCMTRT,  KC_MS_L, KC_MS_D, KC_MS_R
