@@ -52,6 +52,7 @@ enum preonic_keycodes {
   DOTSLSH,
   NCBKTAB,
   NWMVMXW,
+  SHOWYED,
   TERMINAL,
   UTPSTLK,
   VLKTOGG,
@@ -280,8 +281,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |play1 |play2 |      |      |      |      |      | rec2 | rec1 |rstop |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Qwerty|Colemk|Dvorak| new  | new  |      |uTube |      |      |Print |      |
- * |      |      |      |      | teRm | Tab  |      |PaSTe |      |      |screen|      |
+ * |      |Qwerty|Colemk|Dvorak| new  | new  |showY |uTube |      |      |Print |      |
+ * |      |      |      |      | teRm | Tab  |edge  |PaSTe |      |      |screen|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |Audio |Sleep |show  |      |      |finder|mv win|mv win|Lock  |      |      |
  * |      |      |      |Dsktp |      |      |Hddn  |clkw  |c clkw|screen|      |      |
@@ -304,7 +305,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   XXXXXXX, DM_PLY1, DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DM_REC2, DM_REC1, DM_RSTP,    XXXXXXX,
-  XXXXXXX, QWERTY,  COLEMAK, DVORAK, TERMINAL, NCBKTAB, XXXXXXX, UTPSTLK, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
+  XXXXXXX, QWERTY,  COLEMAK, DVORAK, TERMINAL, NCBKTAB, SHOWYED, UTPSTLK, XXXXXXX, XXXXXXX, SCMD(KC_5), XXXXXXX,
   XXXXXXX, AUDIOTG,  C(LCMD(KC_PAUSE)),
                              HYPR(KC_D),
                                       XXXXXXX, XXXXXXX, SCMD(KC_DOT),
@@ -531,6 +532,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
           SEND_STRING("[]" SS_TAP(X_LEFT));
         }
+      }
+      return false;
+      break;
+    case SHOWYED: // move mouse over to showyedge icon, this will restart showyedge.app
+      if (record->event.pressed) {
+        SEND_STRING(SS_TAP(X_BTN2)                     // right click to open drop down menu
+          SS_DELAY(300) "e"                            // Quit
+          SS_TAP(X_ENT)                                // actually quit it
+          SS_DELAY(1200) SS_LCMD(" ")              // Cmd-space to enter the app name
+          SS_DELAY(200) "showyedge.app" SS_DELAY(200)  // search the app name
+          SS_TAP(X_ENT)                                // starts showyedge.app
+        );
       }
       return false;
       break;
