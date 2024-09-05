@@ -540,9 +540,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_TAP(X_BTN2)                     // right click to open drop down menu
           SS_DELAY(300) "e"                            // Quit
           SS_TAP(X_ENT)                                // actually quit it
-          SS_DELAY(1200) SS_LCMD(" ")              // Cmd-space to enter the app name
-          SS_DELAY(200) "showyedge.app" SS_DELAY(200)  // search the app name
-          SS_TAP(X_ENT)                                // starts showyedge.app
+          SS_DELAY(1200) SS_LCMD(" ")                  // Cmd-space to enter the app name
+          SS_DELAY(200) "showyedge.app" // SS_DELAY(200)  // search the app name
+          // SS_TAP(X_ENT)                                // starts showyedge.app
         );
       }
       return false;
